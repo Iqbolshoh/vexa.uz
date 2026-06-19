@@ -86,19 +86,20 @@
         --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       }
 
+      /* ===== LIGHT MODE — YANGI DIZAYN ===== */
       html.light {
-        --bg-base: #f8f6f2;
-        --bg-surface: #f3f0ea;
+        --bg-base: #f7f8ff;
+        --bg-surface: #eef0ff;
         --bg-raised: #ffffff;
-        --bg-overlay: #e8e3d9;
-        --border-subtle: rgba(90, 70, 45, 0.09);
-        --border-strong: rgba(80, 60, 38, 0.17);
-        --text-primary: #1b1814;
-        --text-secondary: #5c5348;
-        --text-muted: #928675;
-        --accent-soft: rgba(139, 92, 246, 0.08);
-        --accent-border: rgba(139, 92, 246, 0.22);
-        --accent-glow: rgba(139, 92, 246, 0.2);
+        --bg-overlay: #e5e8ff;
+        --border-subtle: rgba(99, 76, 231, 0.07);
+        --border-strong: rgba(99, 76, 231, 0.14);
+        --text-primary: #0d0c2c;
+        --text-secondary: #3d3a72;
+        --text-muted: #8a87bb;
+        --accent-soft: rgba(139, 92, 246, 0.13);
+        --accent-border: rgba(139, 92, 246, 0.26);
+        --accent-glow: rgba(139, 92, 246, 0.38);
       }
 
       body {
@@ -201,47 +202,99 @@
         border-color: var(--accent-border);
       }
 
+      /* ===== LIGHT MODE OVERRIDES ===== */
+
+      /* Hero gradient — jonli purple-to-blue */
+      html.light .hero-gradient {
+        background: linear-gradient(135deg, #6d28d9 0%, #1d4ed8 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* text-white — qoʻyuq matn */
       html.light .text-white {
         color: var(--text-primary) !important;
       }
       html.light .hover\:text-white:hover {
-        color: var(--text-primary) !important;
+        color: #6d28d9 !important;
       }
+
+      /* #c084fc rangi yorug' fonda yaxshi ko'rinmaydi */
+      html.light .text-\[\#c084fc\] {
+        color: #7c3aed !important;
+      }
+
+      /* Fon ranglari */
       html.light .bg-white\/5,
       html.light .bg-white\/\[0\.02\] {
-        background-color: rgba(90, 70, 45, 0.05) !important;
+        background-color: rgba(99, 76, 231, 0.055) !important;
       }
       html.light .hover\:bg-white\/5:hover,
       html.light .hover\:bg-white\/10:hover {
-        background-color: rgba(90, 70, 45, 0.07) !important;
+        background-color: rgba(99, 76, 231, 0.1) !important;
       }
+
+      /* Chegaralar */
       html.light .border-white\/5 {
-        border-color: rgba(90, 70, 45, 0.08) !important;
+        border-color: rgba(99, 76, 231, 0.09) !important;
       }
       html.light .border-white\/10 {
-        border-color: rgba(90, 70, 45, 0.13) !important;
+        border-color: rgba(99, 76, 231, 0.15) !important;
       }
       html.light .border-white\/20 {
-        border-color: rgba(90, 70, 45, 0.2) !important;
+        border-color: rgba(99, 76, 231, 0.22) !important;
       }
+
+      /* Tugmalar */
       html.light .btn-secondary {
-        background: #ede7df;
-        border-color: rgba(100, 78, 50, 0.2);
+        background: #ffffff;
+        border-color: rgba(99, 76, 231, 0.2);
+        box-shadow: 0 2px 10px rgba(99, 76, 231, 0.09);
       }
       html.light .btn-secondary:hover {
-        background: #e2dad0;
+        background: #f0eeff;
+        border-color: rgba(99, 76, 231, 0.32);
+        box-shadow: 0 4px 16px rgba(99, 76, 231, 0.14);
       }
+
+      /* Feature/product kartalar — oq, chuqur shadow */
       html.light .feature-card {
+        background: #ffffff;
+        border-color: rgba(99, 76, 231, 0.1);
         box-shadow:
-          0 2px 6px rgba(70, 50, 30, 0.06),
-          0 8px 20px rgba(70, 50, 30, 0.04);
+          0 1px 3px rgba(99, 76, 231, 0.06),
+          0 8px 28px rgba(99, 76, 231, 0.09);
       }
       html.light .feature-card:hover {
         box-shadow:
-          0 12px 28px rgba(70, 50, 30, 0.12),
-          0 0 0 1px rgba(139, 92, 246, 0.2);
+          0 22px 50px rgba(99, 76, 231, 0.18),
+          0 0 0 1.5px rgba(139, 92, 246, 0.3);
       }
 
+      /* Nav — shaffof oq shisha */
+      html.light nav {
+        background: rgba(247, 248, 255, 0.9);
+      }
+
+      /* Fon blob'lar — yorug' rejimda ko'proq ko'rinsin */
+      html.light .fixed.inset-0 > div:first-child {
+        background: rgba(139, 92, 246, 0.2) !important;
+      }
+      html.light .fixed.inset-0 > div:last-child {
+        background: rgba(59, 130, 246, 0.15) !important;
+      }
+
+      /* Stats raqamlari — gradient rang */
+      html.light #stats .text-4xl {
+        background: linear-gradient(135deg, #6d28d9, #2563eb);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      /* ===== THEME ICONS ===== */
       .theme-icon-light {
         display: none;
       }
@@ -296,7 +349,7 @@
         <div class="flex flex-col">
           <span
             class="text-xl sm:text-2xl font-extrabold tracking-tight leading-none hero-gradient"
-            >VEXA</span
+            >VEXA.uz</span
           >
           <span
             class="text-[0.65rem] font-bold text-[var(--accent-hover)] uppercase tracking-[0.22em] mt-0.5"
@@ -328,13 +381,13 @@
           onclick="toggleTheme()"
           class="p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer"
           aria-label="Toggle light/dark mode"
-          title="Tungi/Yorug‘ rejim"
+          title="Tungi/Yorug' rejim"
         >
           <i data-lucide="sun" class="w-5 h-5 theme-icon-dark"></i>
           <i data-lucide="moon" class="w-5 h-5 theme-icon-light"></i>
         </button>
         <a
-          href="https://t.me/vexa_uz"
+          href="https://t.me/templates_uz_support"
           target="_blank"
           class="btn-secondary py-2.5 px-5 rounded-xl text-sm backdrop-blur-md font-semibold"
         >
@@ -361,7 +414,7 @@
                 class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-hover)]"
               ></span>
             </span>
-            O‘zbekiston bo‘ylab 10+ biznes ishonadi
+            O'zbekiston bo'ylab 10+ biznes ishonadi
           </span>
         </div>
 
@@ -378,8 +431,8 @@
         >
           Vexa ekotizimi — savdo, ijara va mijozlar bilan ishlashni
           avtomatlashtiruvchi,
-          <span class="text-white font-semibold">sun’iy intellekt</span> bilan
-          kuchaytirilgan zamonaviy yechimlar to‘plami.
+          <span class="text-white font-semibold">sun'iy intellekt</span> bilan
+          kuchaytirilgan zamonaviy yechimlar to'plami.
         </p>
 
         <div
@@ -390,15 +443,15 @@
             class="btn-primary py-4 px-10 rounded-2xl text-base w-full sm:w-auto shadow-xl"
           >
             <i data-lucide="layers" class="w-5 h-5"></i>
-            Mahsulotlarni ko‘rish
+            Mahsulotlarni ko'rish
           </a>
           <a
-            href="https://t.me/vexa_uz"
+            href="https://t.me/templates_uz_support"
             target="_blank"
             class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
           >
             <i data-lucide="play-circle" class="w-5 h-5"></i>
-            Demo so‘rash
+            Demo so'rash
           </a>
         </div>
 
@@ -416,7 +469,7 @@
           </div>
           <div class="flex items-center gap-2">
             <i data-lucide="headphones" class="w-4 h-4 text-amber-500"></i> 24/7
-            qo‘llab-quvvatlash
+            qo'llab-quvvatlash
           </div>
         </div>
       </div>
@@ -439,7 +492,7 @@
           Vexa dasturiy majmuasi
         </p>
         <p class="text-text-secondary mt-4 max-w-xl mx-auto">
-          Har bir mahsulot bir-biri bilan uzviy bog‘langan. Ma’lumotlar real
+          Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real
           vaqtda sinxronlanadi.
         </p>
       </div>
@@ -506,7 +559,7 @@
           <p
             class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
           >
-            Ijara biznesi uchun to‘liq boshqaruv: bronlash, shartnomalar, to‘lov
+            Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov
             grafigi. Avtomobildan kechki libosgacha.
           </p>
           <div class="flex items-center gap-4 relative z-10">
@@ -545,7 +598,7 @@
             class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
           >
             Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi,
-            xodimlar KPI va sun’iy intellekt asosida tavsiyalar.
+            xodimlar KPI va sun'iy intellekt asosida tavsiyalar.
           </p>
           <div class="flex items-center gap-4 relative z-10">
             <a
@@ -589,7 +642,7 @@
           <i data-lucide="smartphone" class="w-9 h-9 text-sky-400 mb-5"></i>
           <h4 class="text-lg font-bold text-white mb-3">Mobil ofis</h4>
           <p class="text-sm text-text-muted leading-relaxed">
-            Planshet va smartfon uchun to‘liq moslashtirilgan. Biznesingiz doim
+            Planshet va smartfon uchun to'liq moslashtirilgan. Biznesingiz doim
             yoningizda.
           </p>
         </div>
@@ -602,7 +655,7 @@
           ></i>
           <h4 class="text-lg font-bold text-white mb-3">Yuqori himoya</h4>
           <p class="text-sm text-text-muted leading-relaxed">
-            Shifrlash va har kungi zaxira nusxalari. Maʼlumotlaringiz yo‘qolish
+            Shifrlash va har kungi zaxira nusxalari. Maʼlumotlaringiz yo'qolish
             xavfidan himoyalangan.
           </p>
         </div>
@@ -668,8 +721,8 @@
               >
             </a>
             <p class="text-sm text-text-muted leading-relaxed mb-6 pr-4">
-              O‘zbekiston bo‘ylab bizneslarni raqamlashtirish va
-              avtomatlashtirish bo‘yicha ishonchli texnologik hamkor.
+              O'zbekiston bo'ylab bizneslarni raqamlashtirish va
+              avtomatlashtirish bo'yicha ishonchli texnologik hamkor.
             </p>
           </div>
 
@@ -714,7 +767,7 @@
             <h4
               class="text-sm font-bold text-white uppercase tracking-widest mb-6"
             >
-              Bog‘lanish
+              Bog'lanish
             </h4>
             <ul class="space-y-4 text-sm font-medium text-text-muted">
               <li class="flex items-center gap-3">
