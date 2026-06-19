@@ -2,11 +2,13 @@
 <html lang="uz" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vexa - Business Ecosystem</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
+    <title>Vexa • Yagona biznes ekotizimi</title>
 
     <script>
-      // Check local storage for theme preference before rendering to prevent flickering
       (function () {
         if (localStorage.getItem("vexa_theme") === "light") {
           document.documentElement.classList.add("light");
@@ -15,7 +17,6 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -66,47 +67,38 @@
 
     <style>
       :root {
-        /* Base Colors (Dark Mode) */
-        --bg-base: #0b0d12;
-        --bg-surface: #11141b;
-        --bg-raised: #161a23;
-        --bg-overlay: #1c212c;
+        --bg-base: #05070a;
+        --bg-surface: #0b0e14;
+        --bg-raised: #11161f;
+        --bg-overlay: #19202b;
         --border-subtle: rgba(255, 255, 255, 0.06);
-        --border-strong: rgba(255, 255, 255, 0.12);
-
-        /* Text Colors */
-        --text-primary: #f3f4f6;
-        --text-secondary: #9aa3b2;
-        --text-muted: #5d6675;
-
-        /* Accent Colors */
+        --border-strong: rgba(255, 255, 255, 0.11);
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #556070;
         --accent: #8b5cf6;
         --accent-hover: #a855f7;
         --accent-deep: #6d28d9;
         --accent-alt: #3b82f6;
-        --accent-soft: rgba(139, 92, 246, 0.1);
-        --accent-border: rgba(139, 92, 246, 0.25);
-        --accent-glow: rgba(139, 92, 246, 0.35);
-
+        --accent-soft: rgba(139, 92, 246, 0.12);
+        --accent-border: rgba(139, 92, 246, 0.28);
+        --accent-glow: rgba(139, 92, 246, 0.45);
         --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      /* Light Mode Palette */
       html.light {
-        --bg-base: #ede9e2;
-        --bg-surface: #f7f4ef;
+        --bg-base: #f8f6f2;
+        --bg-surface: #f3f0ea;
         --bg-raised: #ffffff;
-        --bg-overlay: #e0dbd2;
-        --border-subtle: rgba(110, 88, 60, 0.09);
-        --border-strong: rgba(90, 70, 45, 0.17);
-
-        --text-primary: #1c1814;
-        --text-secondary: #5c5147;
-        --text-muted: #9c8e7e;
-
-        --accent-soft: rgba(139, 92, 246, 0.09);
-        --accent-border: rgba(139, 92, 246, 0.24);
-        --accent-glow: rgba(139, 92, 246, 0.18);
+        --bg-overlay: #e8e3d9;
+        --border-subtle: rgba(90, 70, 45, 0.09);
+        --border-strong: rgba(80, 60, 38, 0.17);
+        --text-primary: #1b1814;
+        --text-secondary: #5c5348;
+        --text-muted: #928675;
+        --accent-soft: rgba(139, 92, 246, 0.08);
+        --accent-border: rgba(139, 92, 246, 0.22);
+        --accent-glow: rgba(139, 92, 246, 0.2);
       }
 
       body {
@@ -117,45 +109,44 @@
           color 0.3s;
       }
 
-      /* Animations */
       @keyframes float {
         0%,
         100% {
           transform: translateY(0);
         }
         50% {
-          transform: translateY(-12px);
+          transform: translateY(-14px);
         }
       }
       @keyframes pulse-glow {
         0%,
         100% {
-          opacity: 0.3;
+          opacity: 0.25;
           transform: scale(1);
         }
         50% {
-          opacity: 0.6;
-          transform: scale(1.05);
+          opacity: 0.55;
+          transform: scale(1.06);
         }
       }
       .float-anim {
-        animation: float 6s ease-in-out infinite;
+        animation: float 7s ease-in-out infinite;
       }
       .glow-anim {
-        animation: pulse-glow 8s ease-in-out infinite;
+        animation: pulse-glow 9s ease-in-out infinite;
       }
 
-      /* Components */
       .feature-card {
         background: var(--bg-raised);
         border: 1px solid var(--border-strong);
-        transition: all 0.3s var(--ease-out);
+        transition: all 0.35s var(--ease-out);
       }
       .feature-card:hover {
         border-color: var(--accent-border);
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px -15px var(--accent-glow);
+        transform: translateY(-8px);
+        box-shadow: 0 25px 45px -18px var(--accent-glow);
       }
+
       .hero-gradient {
         background: linear-gradient(
           135deg,
@@ -166,6 +157,7 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
+
       .btn-primary {
         background: linear-gradient(
           135deg,
@@ -173,15 +165,15 @@
           var(--accent-alt)
         );
         box-shadow:
-          0 4px 16px -4px var(--accent-glow),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        transition: all 0.2s var(--ease-out);
+          0 8px 22px -8px var(--accent-glow),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.25s var(--ease-out);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        color: #fff !important; /* Force white text on gradients */
-        font-weight: 600;
+        gap: 0.6rem;
+        color: #fff !important;
+        font-weight: 700;
       }
       .btn-primary:hover {
         background: linear-gradient(
@@ -189,9 +181,10 @@
           var(--accent-alt),
           var(--accent-hover)
         );
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px -5px var(--accent-glow);
+        transform: translateY(-3px);
+        box-shadow: 0 18px 30px -8px var(--accent-glow);
       }
+
       .btn-secondary {
         background: var(--bg-overlay);
         border: 1px solid var(--border-strong);
@@ -205,54 +198,50 @@
       }
       .btn-secondary:hover {
         background: var(--border-subtle);
+        border-color: var(--accent-border);
       }
 
-      /* Light Mode Specific Overrides */
       html.light .text-white {
         color: var(--text-primary) !important;
       }
       html.light .hover\:text-white:hover {
         color: var(--text-primary) !important;
       }
-
       html.light .bg-white\/5,
       html.light .bg-white\/\[0\.02\] {
-        background-color: rgba(100, 78, 50, 0.045) !important;
+        background-color: rgba(90, 70, 45, 0.05) !important;
       }
       html.light .hover\:bg-white\/5:hover,
       html.light .hover\:bg-white\/10:hover {
-        background-color: rgba(100, 78, 50, 0.06) !important;
+        background-color: rgba(90, 70, 45, 0.07) !important;
       }
-
       html.light .border-white\/5 {
-        border-color: rgba(100, 78, 50, 0.07) !important;
+        border-color: rgba(90, 70, 45, 0.08) !important;
       }
       html.light .border-white\/10 {
-        border-color: rgba(100, 78, 50, 0.12) !important;
+        border-color: rgba(90, 70, 45, 0.13) !important;
       }
       html.light .border-white\/20 {
-        border-color: rgba(100, 78, 50, 0.18) !important;
+        border-color: rgba(90, 70, 45, 0.2) !important;
       }
-
       html.light .btn-secondary {
-        background: #ede8e0;
-        border-color: rgba(100, 78, 50, 0.18);
+        background: #ede7df;
+        border-color: rgba(100, 78, 50, 0.2);
       }
       html.light .btn-secondary:hover {
-        background: #e2dbd0;
+        background: #e2dad0;
       }
       html.light .feature-card {
         box-shadow:
-          0 1px 3px rgba(80, 60, 38, 0.07),
-          0 4px 18px rgba(80, 60, 38, 0.05);
+          0 2px 6px rgba(70, 50, 30, 0.06),
+          0 8px 20px rgba(70, 50, 30, 0.04);
       }
       html.light .feature-card:hover {
         box-shadow:
-          0 4px 20px rgba(80, 60, 38, 0.1),
-          0 0 0 1px rgba(139, 92, 246, 0.16);
+          0 12px 28px rgba(70, 50, 30, 0.12),
+          0 0 0 1px rgba(139, 92, 246, 0.2);
       }
 
-      /* Theme Icons Toggle */
       .theme-icon-light {
         display: none;
       }
@@ -261,6 +250,10 @@
       }
       html.light .theme-icon-light {
         display: block;
+      }
+
+      .accent-glow-text {
+        text-shadow: 0 0 12px var(--accent-glow);
       }
     </style>
 
@@ -274,24 +267,25 @@
       aria-hidden="true"
     >
       <div
-        class="absolute top-[-10%] left-[-5%] w-[30rem] sm:w-[45rem] h-[30rem] sm:h-[45rem] rounded-full blur-[130px] glow-anim"
+        class="absolute top-[-8%] left-[-5%] w-[34rem] sm:w-[48rem] h-[34rem] sm:h-[48rem] rounded-full blur-[140px] glow-anim"
         style="background: var(--accent-soft)"
       ></div>
       <div
-        class="absolute bottom-[-15%] right-[-10%] w-[35rem] sm:w-[50rem] h-[35rem] sm:h-[50rem] rounded-full blur-[150px] glow-anim"
-        style="background: rgba(59, 130, 246, 0.08)"
+        class="absolute bottom-[-12%] right-[-8%] w-[38rem] sm:w-[52rem] h-[38rem] sm:h-[52rem] rounded-full blur-[160px] glow-anim"
+        style="background: rgba(59, 130, 246, 0.09)"
       ></div>
     </div>
 
+    <!-- NAVIGATION: BRAND POWER -->
     <nav
-      class="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 max-w-[85rem] mx-auto border-b border-border-subtle backdrop-blur-sm"
+      class="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 max-w-[90rem] mx-auto border-b border-border-subtle backdrop-blur-md"
     >
       <a
         href="#"
         class="flex items-center gap-3 decoration-transparent group flex-shrink-0"
       >
         <div
-          class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-border-strong rounded-xl bg-white/5 p-1 overflow-hidden transition-transform group-hover:scale-105"
+          class="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5 overflow-hidden transition-transform group-hover:scale-105 shadow-sm"
         >
           <img
             src="./images/logo-latter.png"
@@ -302,30 +296,29 @@
         <div class="flex flex-col">
           <span
             class="text-xl sm:text-2xl font-extrabold tracking-tight leading-none hero-gradient"
+            >VEXA</span
           >
-            VEXA
-          </span>
           <span
-            class="text-[0.65rem] font-bold text-[var(--accent-hover)] uppercase tracking-[0.2em] mt-0.5"
-            >Ecosystem</span
+            class="text-[0.65rem] font-bold text-[var(--accent-hover)] uppercase tracking-[0.22em] mt-0.5"
+            >Ekotizim</span
           >
         </div>
       </a>
 
-      <div class="hidden md:flex items-center gap-6">
+      <div class="hidden md:flex items-center gap-8">
         <a
           href="#products"
-          class="text-sm font-medium text-text-secondary hover:text-white transition-colors"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
           >Mahsulotlar</a
         >
         <a
           href="#features"
-          class="text-sm font-medium text-text-secondary hover:text-white transition-colors"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
           >Imkoniyatlar</a
         >
         <a
           href="#stats"
-          class="text-sm font-medium text-text-secondary hover:text-white transition-colors"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
           >Statistika</a
         >
       </div>
@@ -335,75 +328,104 @@
           onclick="toggleTheme()"
           class="p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer"
           aria-label="Toggle light/dark mode"
-          title="Toggle Mode"
+          title="Tungi/Yorug‘ rejim"
         >
           <i data-lucide="sun" class="w-5 h-5 theme-icon-dark"></i>
           <i data-lucide="moon" class="w-5 h-5 theme-icon-light"></i>
         </button>
-
         <a
           href="https://t.me/vexa_uz"
           target="_blank"
-          class="btn-secondary py-2 px-4 rounded-xl text-sm backdrop-blur-md"
+          class="btn-secondary py-2.5 px-5 rounded-xl text-sm backdrop-blur-md font-semibold"
         >
           <i data-lucide="headphones" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">Bog'lanish</span>
+          <span class="hidden sm:inline">Aloqa</span>
         </a>
       </div>
     </nav>
 
+    <!-- HERO: STRONGER VALUE PROPOSITION -->
     <main
-      class="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 pt-14 sm:pt-24 pb-20"
     >
-      <div class="text-center max-w-4xl mx-auto">
-        <div class="flex justify-center mb-8">
+      <div class="text-center max-w-5xl mx-auto">
+        <div class="flex justify-center mb-10">
           <span
-            class="px-4 py-1.5 rounded-full bg-[var(--accent-soft)] text-[var(--accent-hover)] border border-[var(--accent-border)] text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm"
+            class="px-5 py-2 rounded-full bg-[var(--accent-soft)] text-[var(--accent-hover)] border border-[var(--accent-border)] text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm backdrop-blur-sm"
           >
-            <span class="relative flex h-2 w-2">
+            <span class="relative flex h-2.5 w-2.5">
               <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-hover)] opacity-75"
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-hover)] opacity-80"
               ></span>
               <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent-hover)]"
+                class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-hover)]"
               ></span>
             </span>
-            Barcha bizneslar uchun bitta tizim
+            O‘zbekiston bo‘ylab 10+ biznes ishonadi
           </span>
         </div>
 
         <h1
-          class="text-[clamp(2.5rem,8vw,4.5rem)] font-extrabold leading-[1.1] tracking-tight text-white mb-6"
+          class="text-[clamp(2.8rem,8vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-8"
         >
-          Biznesingizni yagona <br />
-          <span class="hero-gradient">Platformada Boshqaring</span>
+          Biznesingizni <br class="sm:hidden" />
+          <span class="hero-gradient">yagona qudratli</span> platformada
+          boshqaring
         </h1>
 
         <p
-          class="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+          class="text-lg sm:text-2xl text-text-secondary max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
         >
-          Vexa ekotizimi — savdo do'konlari, ijara xizmatlari va mijozlar bilan
-          munosabatlarni avtomatlashtirish uchun eng ilg'or zamonaviy yechimlar
-          to'plami.
+          Vexa ekotizimi — savdo, ijara va mijozlar bilan ishlashni
+          avtomatlashtiruvchi,
+          <span class="text-white font-semibold">sun’iy intellekt</span> bilan
+          kuchaytirilgan zamonaviy yechimlar to‘plami.
         </p>
 
         <div
-          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          class="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
           <a
             href="#products"
-            class="btn-primary py-4 px-8 rounded-2xl text-base w-full sm:w-auto"
+            class="btn-primary py-4 px-10 rounded-2xl text-base w-full sm:w-auto shadow-xl"
           >
             <i data-lucide="layers" class="w-5 h-5"></i>
-            Mahsulotlarni ko'rish
+            Mahsulotlarni ko‘rish
           </a>
+          <a
+            href="https://t.me/vexa_uz"
+            target="_blank"
+            class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
+          >
+            <i data-lucide="play-circle" class="w-5 h-5"></i>
+            Demo so‘rash
+          </a>
+        </div>
+
+        <!-- Quick trust badges -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-6 mt-14 text-xs font-semibold text-text-muted uppercase tracking-widest"
+        >
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+            Bank darajasidagi xavfsizlik
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="cloud" class="w-4 h-4 text-sky-500"></i> 99.9%
+            ishonchlilik
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="headphones" class="w-4 h-4 text-amber-500"></i> 24/7
+            qo‘llab-quvvatlash
+          </div>
         </div>
       </div>
     </main>
 
+    <!-- PRODUCTS: MORE DYNAMIC & BRANDED -->
     <section
       id="products"
-      class="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 py-16"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24"
     >
       <div class="text-center mb-16">
         <h2
@@ -412,220 +434,228 @@
           Ekotizim tarkibi
         </h2>
         <p
-          class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"
+          class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
         >
-          Vexa Dasturiy Mahsulotlari
+          Vexa dasturiy majmuasi
+        </p>
+        <p class="text-text-secondary mt-4 max-w-xl mx-auto">
+          Har bir mahsulot bir-biri bilan uzviy bog‘langan. Ma’lumotlar real
+          vaqtda sinxronlanadi.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+        <!-- Sales Vexa -->
         <div
-          class="feature-card p-8 rounded-[2rem] flex flex-col h-full relative overflow-hidden group"
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
           >
-            <i data-lucide="shopping-cart" class="w-32 h-32 text-[#a855f7]"></i>
+            <i data-lucide="shopping-cart" class="w-36 h-36 text-[#a855f7]"></i>
           </div>
           <div
-            class="w-14 h-14 rounded-2xl flex items-center justify-center bg-[#a855f7]/10 border border-[#a855f7]/20 mb-6 relative z-10"
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#a855f7]/15 border border-[#a855f7]/25 mb-7 relative z-10"
           >
-            <i data-lucide="store" class="w-7 h-7 text-[#a855f7]"></i>
+            <i data-lucide="store" class="w-8 h-8 text-[#c084fc]"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2 relative z-10">
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
             Sales Vexa
           </h3>
           <p
             class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
           >
-            Do'kon va omborni boshqarish, savdo jarayonlarini avtomatlashtirish
-            hamda kassa tizimi uchun mukammal yechim.
+            Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va
+            bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.
           </p>
-          <a
-            href="https://sales.vexa.uz"
-            target="_blank"
-            class="inline-flex items-center gap-2 text-[#a855f7] font-bold hover:opacity-80 transition-opacity relative z-10"
-          >
-            Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://sales.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm"
+            >
+              Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              >Sotuv +45%</span
+            >
+          </div>
         </div>
 
+        <!-- Rent Vexa -->
         <div
-          class="feature-card p-8 rounded-[2rem] flex flex-col h-full relative overflow-hidden group"
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
           >
-            <i data-lucide="key" class="w-32 h-32 text-emerald-500"></i>
+            <i data-lucide="key" class="w-36 h-36 text-emerald-500"></i>
           </div>
           <div
-            class="w-14 h-14 rounded-2xl flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 mb-6 relative z-10"
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-emerald-500/15 border border-emerald-500/25 mb-7 relative z-10"
           >
             <i
               data-lucide="calendar-clock"
-              class="w-7 h-7 text-emerald-500"
+              class="w-8 h-8 text-emerald-400"
             ></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2 relative z-10">
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
             Rent Vexa
           </h3>
           <p
             class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
           >
-            Avtomobil, qurilish texnikasi, liboslar va ixtiyoriy anjomlar
-            ijarasi hisobini yurituvchi innovatsion platforma.
+            Ijara biznesi uchun to‘liq boshqaruv: bronlash, shartnomalar, to‘lov
+            grafigi. Avtomobildan kechki libosgacha.
           </p>
-          <a
-            href="https://rent.vexa.uz"
-            target="_blank"
-            class="inline-flex items-center gap-2 text-emerald-500 font-bold hover:opacity-80 transition-opacity relative z-10"
-          >
-            Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://rent.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              >Bandlov +60%</span
+            >
+          </div>
         </div>
 
+        <!-- CRM Vexa -->
         <div
-          class="feature-card p-8 rounded-[2rem] flex flex-col h-full relative overflow-hidden group"
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
           >
-            <i data-lucide="users" class="w-32 h-32 text-blue-500"></i>
+            <i data-lucide="users" class="w-36 h-36 text-blue-500"></i>
           </div>
           <div
-            class="w-14 h-14 rounded-2xl flex items-center justify-center bg-blue-500/10 border border-blue-500/20 mb-6 relative z-10"
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-500/15 border border-blue-500/25 mb-7 relative z-10"
           >
-            <i data-lucide="pie-chart" class="w-7 h-7 text-blue-500"></i>
+            <i data-lucide="pie-chart" class="w-8 h-8 text-blue-400"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2 relative z-10">
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
             CRM Vexa
           </h3>
           <p
             class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
           >
-            Mijozlar bazasini shakllantirish, savdo voronkasi va xodimlar
-            ishadorligini tahlil qilish uchun CRM tizimi.
+            Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi,
+            xodimlar KPI va sun’iy intellekt asosida tavsiyalar.
           </p>
-          <a
-            href="https://crm.vexa.uz"
-            target="_blank"
-            class="inline-flex items-center gap-2 text-blue-500 font-bold hover:opacity-80 transition-opacity relative z-10"
-          >
-            Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://crm.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              Tizimga kirish <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              >Konversiya 2x</span
+            >
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- FEATURES: STRONGER GRID & METRICS -->
     <section
       id="features"
-      class="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 py-16 border-t border-border-subtle"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 border-t border-border-subtle"
     >
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
-          class="p-6 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors"
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
         >
           <i
             data-lucide="cloud-lightning"
-            class="w-8 h-8 text-yellow-500 mb-4"
+            class="w-9 h-9 text-yellow-400 mb-5"
           ></i>
-          <h4 class="text-lg font-bold text-white mb-2">Bulutli Texnologiya</h4>
-          <p class="text-sm text-text-muted">
-            Ma'lumotlaringiz xavfsiz bulut serverlarda saqlanadi. Ixtiyoriy
-            qurilmadan kirish imkoniyati.
+          <h4 class="text-lg font-bold text-white mb-3">Bulutli texnologiya</h4>
+          <p class="text-sm text-text-muted leading-relaxed">
+            Maʼlumotlaringiz xavfsiz bulutda. Dunyoning istalgan nuqtasidan real
+            vaqt rejimida boshqaring.
           </p>
         </div>
         <div
-          class="p-6 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors"
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
         >
-          <i data-lucide="smartphone" class="w-8 h-8 text-sky-500 mb-4"></i>
-          <h4 class="text-lg font-bold text-white mb-2">Mobil Moslashuv</h4>
-          <p class="text-sm text-text-muted">
-            Barcha dasturlarimiz planshet va smartfonlarda ishlash uchun 100%
-            moslashtirilgan.
+          <i data-lucide="smartphone" class="w-9 h-9 text-sky-400 mb-5"></i>
+          <h4 class="text-lg font-bold text-white mb-3">Mobil ofis</h4>
+          <p class="text-sm text-text-muted leading-relaxed">
+            Planshet va smartfon uchun to‘liq moslashtirilgan. Biznesingiz doim
+            yoningizda.
           </p>
         </div>
         <div
-          class="p-6 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors"
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
         >
           <i
             data-lucide="shield-check"
-            class="w-8 h-8 text-emerald-500 mb-4"
+            class="w-9 h-9 text-emerald-400 mb-5"
           ></i>
-          <h4 class="text-lg font-bold text-white mb-2">Yuqori Xavfsizlik</h4>
-          <p class="text-sm text-text-muted">
-            Zamonaviy shifrlash usullari va muntazam zaxira nusxalari (backup)
-            yaratilishi kafolatlangan.
+          <h4 class="text-lg font-bold text-white mb-3">Yuqori himoya</h4>
+          <p class="text-sm text-text-muted leading-relaxed">
+            Shifrlash va har kungi zaxira nusxalari. Maʼlumotlaringiz yo‘qolish
+            xavfidan himoyalangan.
           </p>
         </div>
         <div
-          class="p-6 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors"
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
         >
-          <i data-lucide="bar-chart-4" class="w-8 h-8 text-rose-500 mb-4"></i>
-          <h4 class="text-lg font-bold text-white mb-2">Aniq Analitika</h4>
-          <p class="text-sm text-text-muted">
-            Biznesingiz qanday ishlayotganini aniq raqamlar va tushunarli
-            grafiklar yordamida kuzating.
+          <i data-lucide="bar-chart-4" class="w-9 h-9 text-rose-400 mb-5"></i>
+          <h4 class="text-lg font-bold text-white mb-3">Aniq analitika</h4>
+          <p class="text-sm text-text-muted leading-relaxed">
+            Daromad, xarajat va foyda hisobotlari. AI yordamida prognozlar va
+            tavsiyalar.
           </p>
         </div>
       </div>
-    </section>
 
-    <section
-      id="stats"
-      class="relative z-10 py-16 border-y border-border-subtle bg-white/[0.02]"
-    >
+      <!-- Stats / Social proof section (new) -->
       <div
-        class="max-w-[85rem] mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        id="stats"
+        class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
       >
-        <div>
-          <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">3+</p>
-          <p
-            class="text-xs font-bold text-text-muted uppercase tracking-widest"
-          >
-            Asosiy Mahsulotlar
-          </p>
+        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+          <span class="text-4xl font-extrabold text-white">10+</span>
+          <span class="block text-sm text-text-muted mt-2">faol mijoz</span>
         </div>
-        <div>
-          <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">
-            99.9%
-          </p>
-          <p
-            class="text-xs font-bold text-text-muted uppercase tracking-widest"
+        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+          <span class="text-4xl font-extrabold text-white">12 ta</span>
+          <span class="block text-sm text-text-muted mt-2"
+            >viloyatda mavjud</span
           >
-            Server Barqarorligi
-          </p>
         </div>
-        <div>
-          <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">
-            24/7
-          </p>
-          <p
-            class="text-xs font-bold text-text-muted uppercase tracking-widest"
+        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+          <span class="text-4xl font-extrabold text-white">99.9%</span>
+          <span class="block text-sm text-text-muted mt-2"
+            >server barqarorligi</span
           >
-            Texnik Yordam
-          </p>
         </div>
-        <div>
-          <p class="text-4xl md:text-5xl font-extrabold text-white mb-2">UZS</p>
-          <p
-            class="text-xs font-bold text-text-muted uppercase tracking-widest"
-          >
-            Mahalliy Integratsiyalar
-          </p>
+        <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+          <span class="text-4xl font-extrabold text-white">24/7</span>
+          <span class="block text-sm text-text-muted mt-2">texnik yordam</span>
         </div>
       </div>
     </section>
 
-    <footer class="relative z-10 pt-16 pb-8 bg-[var(--bg-base)]">
-      <div class="max-w-[85rem] mx-auto px-4 sm:px-6">
+    <!-- FOOTER: STRONGER BRAND CLOSING -->
+    <footer class="relative z-10 pt-20 pb-10 bg-[var(--bg-base)]">
+      <div class="max-w-[90rem] mx-auto px-4 sm:px-6">
         <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 border-b border-border-subtle pb-12"
+          class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14 border-b border-border-subtle pb-14"
         >
           <div class="col-span-1">
             <a href="#" class="flex items-center gap-3 mb-6">
               <div
-                class="w-10 h-10 flex items-center justify-center border border-border-strong rounded-xl bg-white/5 p-1"
+                class="w-11 h-11 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5"
               >
                 <img
                   src="./images/logo.png"
@@ -633,11 +663,13 @@
                   class="w-full h-full object-contain rounded-lg"
                 />
               </div>
-              <span class="text-xl font-extrabold text-white">Vexa.uz</span>
+              <span class="text-2xl font-extrabold text-white tracking-tight"
+                >Vexa.uz</span
+              >
             </a>
             <p class="text-sm text-text-muted leading-relaxed mb-6 pr-4">
-              O'zbekiston bo'ylab bizneslarni raqamlashtirish va
-              avtomatlashtirish bo'yicha ishonchli hamkoringiz.
+              O‘zbekiston bo‘ylab bizneslarni raqamlashtirish va
+              avtomatlashtirish bo‘yicha ishonchli texnologik hamkor.
             </p>
           </div>
 
@@ -645,7 +677,7 @@
             <h4
               class="text-sm font-bold text-white uppercase tracking-widest mb-6"
             >
-              Mahsulotlarimiz
+              Mahsulotlar
             </h4>
             <ul class="space-y-4 text-sm font-medium text-text-muted">
               <li>
@@ -653,7 +685,7 @@
                   href="https://sales.vexa.uz"
                   target="_blank"
                   class="hover:text-white transition-colors flex items-center gap-2"
-                  ><i data-lucide="external-link" class="w-3 h-3"></i> Sales
+                  ><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Sales
                   Vexa</a
                 >
               </li>
@@ -662,7 +694,7 @@
                   href="https://rent.vexa.uz"
                   target="_blank"
                   class="hover:text-white transition-colors flex items-center gap-2"
-                  ><i data-lucide="external-link" class="w-3 h-3"></i> Rent
+                  ><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Rent
                   Vexa</a
                 >
               </li>
@@ -671,7 +703,7 @@
                   href="https://crm.vexa.uz"
                   target="_blank"
                   class="hover:text-white transition-colors flex items-center gap-2"
-                  ><i data-lucide="external-link" class="w-3 h-3"></i> CRM
+                  ><i data-lucide="external-link" class="w-3.5 h-3.5"></i> CRM
                   Vexa</a
                 >
               </li>
@@ -682,7 +714,7 @@
             <h4
               class="text-sm font-bold text-white uppercase tracking-widest mb-6"
             >
-              Bog'lanish
+              Bog‘lanish
             </h4>
             <ul class="space-y-4 text-sm font-medium text-text-muted">
               <li class="flex items-center gap-3">
@@ -691,9 +723,9 @@
                   class="w-4 h-4 flex-shrink-0 text-[var(--accent-hover)]"
                 ></i>
                 <a
-                  href="mailto:info@vexa.uz"
+                  href="mailto:iilhomjonov77@gmail.com"
                   class="hover:text-white transition-colors"
-                  >info@vexa.uz</a
+                  >iilhomjonov77@gmail.com</a
                 >
               </li>
               <li class="flex items-center gap-3">
@@ -702,11 +734,18 @@
                   class="w-4 h-4 flex-shrink-0 text-[var(--accent-alt)]"
                 ></i>
                 <a
-                  href="https://t.me/vexa_uz"
+                  href="https://t.me/templates_uz_support"
                   target="_blank"
                   class="hover:text-white transition-colors"
-                  >@vexa_uz</a
+                  >@templates_uz_support</a
                 >
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 flex-shrink-0 text-emerald-400"
+                ></i>
+                <span class="text-white font-semibold">+998 77 603 00 33</span>
               </li>
             </ul>
           </div>
@@ -715,13 +754,15 @@
         <div
           class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted"
         >
-          <p>&copy; 2026 Vexa.uz — Barcha huquqlar himoyalangan.</p>
+          <p>
+            &copy; 2026 Vexa.uz — Barcha huquqlar himoyalangan. Yagona ekotizim.
+          </p>
           <div class="flex items-center gap-6">
             <span class="flex items-center gap-2">
               <span
                 class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
               ></span>
-              Barcha tizimlar barqaror ishlamoqda
+              Barcha tizimlar barqaror
             </span>
           </div>
         </div>
@@ -735,7 +776,6 @@
         localStorage.setItem("vexa_theme", isLight ? "light" : "dark");
       }
 
-      // Initialize Lucide Icons
       lucide.createIcons();
     </script>
   </body>
