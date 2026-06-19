@@ -2,15 +2,21 @@
 <html lang="uz" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
     <title>Vexa • Yagona biznes ekotizimi</title>
 
+    <!-- Theme flash prevention (must stay inline in head) -->
     <script>
       (function () {
-        if (localStorage.getItem("vexa_theme") === "light") document.documentElement.classList.add("light");
+        if (localStorage.getItem("vexa_theme") === "light")
+          document.documentElement.classList.add("light");
       })();
     </script>
 
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -18,174 +24,165 @@
         theme: {
           extend: {
             colors: {
-              background: "var(--bg-base)", surface: "var(--bg-surface)", raised: "var(--bg-raised)", overlay: "var(--bg-overlay)",
-              accent: { DEFAULT: "var(--accent)", hover: "var(--accent-hover)", alt: "var(--accent-alt)", soft: "var(--accent-soft)", border: "var(--accent-border)", glow: "var(--accent-glow)" },
-              text: { main: "var(--text-primary)", secondary: "var(--text-secondary)", muted: "var(--text-muted)" },
-              border: { subtle: "var(--border-subtle)", strong: "var(--border-strong)" },
+              background: "var(--bg-base)",
+              surface: "var(--bg-surface)",
+              raised: "var(--bg-raised)",
+              overlay: "var(--bg-overlay)",
+              accent: {
+                DEFAULT: "var(--accent)",
+                hover: "var(--accent-hover)",
+                alt: "var(--accent-alt)",
+                soft: "var(--accent-soft)",
+                border: "var(--accent-border)",
+                glow: "var(--accent-glow)",
+              },
+              text: {
+                main: "var(--text-primary)",
+                secondary: "var(--text-secondary)",
+                muted: "var(--text-muted)",
+              },
+              border: {
+                subtle: "var(--border-subtle)",
+                strong: "var(--border-strong)",
+              },
             },
-            fontFamily: { sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
+            fontFamily: {
+              sans: [
+                "Plus Jakarta Sans",
+                "ui-sans-serif",
+                "system-ui",
+                "sans-serif",
+              ],
+            },
           },
         },
       };
     </script>
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    <style>
-      :root {
-        --bg-base: #05070a; --bg-surface: #0b0e14; --bg-raised: #11161f; --bg-overlay: #19202b;
-        --border-subtle: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.11);
-        --text-primary: #f1f5f9; --text-secondary: #94a3b8; --text-muted: #556070;
-        --accent: #8b5cf6; --accent-hover: #a855f7; --accent-deep: #6d28d9; --accent-alt: #3b82f6;
-        --accent-soft: rgba(139,92,246,0.12); --accent-border: rgba(139,92,246,0.28); --accent-glow: rgba(139,92,246,0.45);
-        --ease-out: cubic-bezier(0.16,1,0.3,1);
-      }
-      html.light {
-        --bg-base: #f7f8ff; --bg-surface: #eef0ff; --bg-raised: #ffffff; --bg-overlay: #e5e8ff;
-        --border-subtle: rgba(99,76,231,0.07); --border-strong: rgba(99,76,231,0.14);
-        --text-primary: #0d0c2c; --text-secondary: #3d3a72; --text-muted: #8a87bb;
-        --accent-soft: rgba(139,92,246,0.13); --accent-border: rgba(139,92,246,0.26); --accent-glow: rgba(139,92,246,0.38);
-      }
-      body { background-color: var(--bg-base); color: var(--text-primary); transition: background-color 0.3s, color 0.3s; }
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" />
 
-      @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-      @keyframes pulse-glow { 0%,100% { opacity:0.25; transform:scale(1); } 50% { opacity:0.55; transform:scale(1.06); } }
-      .float-anim { animation: float 7s ease-in-out infinite; }
-      .glow-anim  { animation: pulse-glow 9s ease-in-out infinite; }
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/styles.css" />
 
-      .feature-card { background:var(--bg-raised); border:1px solid var(--border-strong); transition:all 0.35s var(--ease-out); }
-      .feature-card:hover { border-color:var(--accent-border); transform:translateY(-8px); box-shadow:0 25px 45px -18px var(--accent-glow); }
-
-      .hero-gradient { background:linear-gradient(135deg,var(--text-primary) 0%,var(--text-secondary) 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-      html.light .hero-gradient { background:linear-gradient(135deg,#6d28d9 0%,#1d4ed8 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-
-      .btn-primary { background:linear-gradient(135deg,var(--accent-hover),var(--accent-alt)); box-shadow:0 8px 22px -8px var(--accent-glow),inset 0 1px 0 rgba(255,255,255,0.2); transition:all 0.25s var(--ease-out); display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; color:#fff!important; font-weight:700; }
-      .btn-primary:hover { background:linear-gradient(135deg,var(--accent-alt),var(--accent-hover)); transform:translateY(-3px); box-shadow:0 18px 30px -8px var(--accent-glow); }
-      .btn-secondary { background:var(--bg-overlay); border:1px solid var(--border-strong); color:var(--text-primary); transition:all 0.2s var(--ease-out); display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; font-weight:600; }
-      .btn-secondary:hover { background:var(--border-subtle); border-color:var(--accent-border); }
-
-      /* Light mode overrides */
-      html.light .text-white { color:var(--text-primary)!important; }
-      html.light .hover\:text-white:hover { color:#6d28d9!important; }
-      html.light .text-\[\#c084fc\] { color:#7c3aed!important; }
-      html.light .bg-white\/5, html.light .bg-white\/\[0\.02\] { background-color:rgba(99,76,231,0.055)!important; }
-      html.light .hover\:bg-white\/5:hover, html.light .hover\:bg-white\/10:hover { background-color:rgba(99,76,231,0.1)!important; }
-      html.light .border-white\/5  { border-color:rgba(99,76,231,0.09)!important; }
-      html.light .border-white\/10 { border-color:rgba(99,76,231,0.15)!important; }
-      html.light .border-white\/20 { border-color:rgba(99,76,231,0.22)!important; }
-      html.light .btn-secondary { background:#ffffff; border-color:rgba(99,76,231,0.2); box-shadow:0 2px 10px rgba(99,76,231,0.09); }
-      html.light .btn-secondary:hover { background:#f0eeff; border-color:rgba(99,76,231,0.32); }
-      html.light .feature-card { background:#ffffff; border-color:rgba(99,76,231,0.1); box-shadow:0 1px 3px rgba(99,76,231,0.06),0 8px 28px rgba(99,76,231,0.09); }
-      html.light .feature-card:hover { box-shadow:0 22px 50px rgba(99,76,231,0.18),0 0 0 1.5px rgba(139,92,246,0.3); }
-      html.light nav { background:transparent; }
-      html.light .fixed.inset-0>div:first-child { background:rgba(139,92,246,0.2)!important; }
-      html.light .fixed.inset-0>div:last-child  { background:rgba(59,130,246,0.15)!important; }
-      html.light #stats .text-4xl { background:linear-gradient(135deg,#6d28d9,#2563eb); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; }
-
-      /* Theme icons */
-      .theme-icon-light { display:none; }
-      html.light .theme-icon-dark  { display:none; }
-      html.light .theme-icon-light { display:block; }
-
-      .accent-glow-text { text-shadow:0 0 12px var(--accent-glow); }
-
-      /* ===== LANG SWITCHER ===== */
-      .lang-btn {
-        padding: 0.2rem 0.45rem;
-        border-radius: 0.4rem;
-        font-size: 0.62rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.15s;
-        border: 1px solid transparent;
-      }
-      .lang-btn:hover { color: var(--text-primary); }
-      .lang-btn.active { color: var(--accent-hover); background: var(--accent-soft); border-color: var(--accent-border); }
-
-      /* ===== MOBILE MENU ===== */
-      #mobile-menu {
-        position: fixed;
-        inset: 0;
-        z-index: 200;
-        display: none;
-      }
-      #mobile-menu.open { display: block; }
-      #mobile-menu-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,0.65);
-        backdrop-filter: blur(4px);
-      }
-      #mobile-menu-panel {
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        background: var(--bg-surface);
-        border-bottom: 1px solid var(--border-strong);
-        border-radius: 0 0 1.5rem 1.5rem;
-        padding: 1.25rem 1.5rem 1.75rem;
-        transform: translateY(-100%);
-        transition: transform 0.35s var(--ease-out);
-      }
-      #mobile-menu.open #mobile-menu-panel { transform: translateY(0); }
-      html.light #mobile-menu-panel { background: var(--bg-raised); }
-    </style>
-
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
-  <body class="relative min-h-screen overflow-x-hidden selection:bg-[var(--accent-hover)] selection:text-white">
 
-    <!-- Background blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-      <div class="absolute top-[-8%] left-[-5%] w-[34rem] sm:w-[48rem] h-[34rem] sm:h-[48rem] rounded-full blur-[140px] glow-anim" style="background:var(--accent-soft)"></div>
-      <div class="absolute bottom-[-12%] right-[-8%] w-[38rem] sm:w-[52rem] h-[38rem] sm:h-[52rem] rounded-full blur-[160px] glow-anim" style="background:rgba(59,130,246,0.09)"></div>
+  <body
+    class="relative min-h-screen overflow-x-hidden selection:bg-[var(--accent-hover)] selection:text-white"
+  >
+    <!-- ==================== BACKGROUND BLOBS ==================== -->
+    <div
+      class="fixed inset-0 overflow-hidden pointer-events-none z-0"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute top-[-8%] left-[-5%] w-[34rem] sm:w-[48rem] h-[34rem] sm:h-[48rem] rounded-full blur-[140px] glow-anim"
+        style="background: var(--accent-soft)"
+      ></div>
+      <div
+        class="absolute bottom-[-12%] right-[-8%] w-[38rem] sm:w-[52rem] h-[38rem] sm:h-[52rem] rounded-full blur-[160px] glow-anim"
+        style="background: rgba(59, 130, 246, 0.09)"
+      ></div>
     </div>
 
-    <!-- ===== MOBILE MENU ===== -->
-    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile menu">
-      <div id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
-      <div id="mobile-menu-panel">
-        <!-- Top row: logo + close -->
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div
+      id="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile menu"
+    >
+      <div id="mobile-overlay" onclick="closeMobileMenu()"></div>
+      <div id="mobile-panel">
+        <!-- Header row -->
         <div class="flex items-center justify-between mb-6">
-          <a href="#" class="flex items-center gap-2.5" onclick="closeMobileMenu()">
-            <div class="w-9 h-9 flex items-center justify-center border border-border-strong rounded-xl bg-white/5 p-1 overflow-hidden">
-              <img src="./images/logo-latter.png" alt="Vexa" class="w-full h-full object-contain rounded-lg" />
+          <a
+            href="#"
+            onclick="closeMobileMenu()"
+            class="flex items-center gap-2.5"
+          >
+            <div
+              class="w-9 h-9 flex items-center justify-center border border-[var(--border-strong)] rounded-xl bg-white/5 p-1 overflow-hidden"
+            >
+              <img
+                src="./images/logo-latter.png"
+                alt="Vexa"
+                class="w-full h-full object-contain rounded-lg"
+              />
             </div>
-            <span class="text-lg font-extrabold tracking-tight hero-gradient">VEXA.uz</span>
+            <span class="text-lg font-extrabold tracking-tight hero-gradient"
+              >VEXA.uz</span
+            >
           </a>
-          <button onclick="closeMobileMenu()" class="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] rounded-xl hover:bg-white/5 transition-colors">
+          <button
+            onclick="closeMobileMenu()"
+            class="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] rounded-xl hover:bg-white/5 transition-colors"
+          >
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
 
         <!-- Nav links -->
         <nav class="flex flex-col gap-1 mb-6">
-          <a href="#products" onclick="closeMobileMenu()" class="flex items-center gap-3 px-3 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 transition-colors font-semibold">
-            <i data-lucide="layers" class="w-4 h-4 text-[var(--accent-hover)]"></i>
+          <a
+            href="#products"
+            onclick="closeMobileMenu()"
+            class="mobile-nav-link"
+          >
+            <i
+              data-lucide="layers"
+              class="w-4 h-4 text-[var(--accent-hover)]"
+            ></i>
             <span data-i18n="nav_products">Mahsulotlar</span>
           </a>
-          <a href="#features" onclick="closeMobileMenu()" class="flex items-center gap-3 px-3 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 transition-colors font-semibold">
+          <a
+            href="#features"
+            onclick="closeMobileMenu()"
+            class="mobile-nav-link"
+          >
             <i data-lucide="zap" class="w-4 h-4 text-[var(--accent-alt)]"></i>
             <span data-i18n="nav_features">Imkoniyatlar</span>
           </a>
-          <a href="#stats" onclick="closeMobileMenu()" class="flex items-center gap-3 px-3 py-3 rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 transition-colors font-semibold">
+          <a href="#stats" onclick="closeMobileMenu()" class="mobile-nav-link">
             <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-400"></i>
             <span data-i18n="nav_stats">Statistika</span>
           </a>
         </nav>
 
-        <!-- Lang + actions -->
-        <div class="flex items-center justify-between pt-4 border-t border-[var(--border-subtle)]">
+        <!-- Bottom row: lang options + contact -->
+        <div
+          class="flex items-center justify-between pt-4 border-t border-[var(--border-subtle)]"
+        >
           <div class="flex items-center gap-1">
-            <button class="lang-btn" data-lang="uz" onclick="setLang('uz')">UZ</button>
-            <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" data-lang="tj" onclick="setLang('tj')">TJ</button>
+            <button class="lang-option" data-lang="uz" onclick="setLang('uz')">
+              UZ
+            </button>
+            <button class="lang-option" data-lang="ru" onclick="setLang('ru')">
+              RU
+            </button>
+            <button class="lang-option" data-lang="en" onclick="setLang('en')">
+              EN
+            </button>
+            <button class="lang-option" data-lang="tj" onclick="setLang('tj')">
+              TJ
+            </button>
           </div>
-          <a href="https://t.me/templates_uz_support" target="_blank" onclick="closeMobileMenu()" class="btn-secondary py-2.5 px-5 rounded-xl text-sm font-semibold">
+          <a
+            href="https://t.me/templates_uz_support"
+            target="_blank"
+            onclick="closeMobileMenu()"
+            class="btn-secondary py-2.5 px-5 rounded-xl text-sm font-semibold"
+          >
             <i data-lucide="headphones" class="w-4 h-4"></i>
             <span data-i18n="nav_contact">Aloqa</span>
           </a>
@@ -193,93 +190,197 @@
       </div>
     </div>
 
-    <!-- ===== NAV ===== -->
-    <nav class="relative z-10 flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 max-w-[90rem] mx-auto border-b border-border-subtle backdrop-blur-md">
+    <!-- ==================== NAVIGATION ==================== -->
+    <header class="site-header">
+    <nav
+      class="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 max-w-[90rem] mx-auto"
+    >
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 decoration-transparent group flex-shrink-0">
-        <div class="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5 overflow-hidden transition-transform group-hover:scale-105 shadow-sm">
-          <img src="./images/logo-latter.png" alt="Vexa Ecosystem Logo" class="w-full h-full object-contain rounded-lg" />
+      <a
+        href="#"
+        class="flex items-center gap-3 decoration-transparent group flex-shrink-0"
+      >
+        <div
+          class="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5 overflow-hidden transition-transform group-hover:scale-105 shadow-sm"
+        >
+          <img
+            src="./images/logo-latter.png"
+            alt="Vexa Ecosystem Logo"
+            class="w-full h-full object-contain rounded-lg"
+          />
         </div>
         <div class="flex flex-col">
-          <span class="text-xl sm:text-2xl font-extrabold tracking-tight leading-none hero-gradient">VEXA.uz</span>
-          <span class="text-[0.65rem] font-bold text-[var(--accent-hover)] uppercase tracking-[0.22em] mt-0.5">Ekotizim</span>
+          <span
+            class="text-xl sm:text-2xl font-extrabold tracking-tight leading-none hero-gradient"
+            >VEXA.uz</span
+          >
+          <span
+            class="text-[0.65rem] font-bold text-[var(--accent-hover)] uppercase tracking-[0.22em] mt-0.5"
+            >Ekotizim</span
+          >
         </div>
       </a>
 
       <!-- Desktop nav links -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#products" class="text-sm font-semibold text-text-secondary hover:text-white transition-colors" data-i18n="nav_products">Mahsulotlar</a>
-        <a href="#features" class="text-sm font-semibold text-text-secondary hover:text-white transition-colors" data-i18n="nav_features">Imkoniyatlar</a>
-        <a href="#stats"    class="text-sm font-semibold text-text-secondary hover:text-white transition-colors" data-i18n="nav_stats">Statistika</a>
+        <a
+          href="#products"
+          data-i18n="nav_products"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
+          >Mahsulotlar</a
+        >
+        <a
+          href="#features"
+          data-i18n="nav_features"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
+          >Imkoniyatlar</a
+        >
+        <a
+          href="#stats"
+          data-i18n="nav_stats"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
+          >Statistika</a
+        >
       </div>
 
       <!-- Right controls -->
-      <div class="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-        <!-- Lang switcher (desktop) -->
-        <div class="hidden sm:flex items-center gap-0.5 mr-1">
-          <button class="lang-btn" data-lang="uz" onclick="setLang('uz')">UZ</button>
-          <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">RU</button>
-          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" data-lang="tj" onclick="setLang('tj')">TJ</button>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <!-- Lang dropdown (desktop) -->
+        <div class="lang-dropdown hidden sm:block" id="lang-dropdown">
+          <button
+            class="lang-trigger"
+            onclick="toggleLangDropdown()"
+            aria-label="Select language"
+          >
+            <span id="lang-label">UZ</span>
+            <i data-lucide="languages" class="w-4 h-4"></i>
+          </button>
+          <div class="lang-panel" id="lang-panel">
+            <button class="lang-option" data-lang="en" onclick="setLang('en')">
+              EN
+            </button>
+            <button class="lang-option" data-lang="ru" onclick="setLang('ru')">
+              RU
+            </button>
+            <button class="lang-option" data-lang="uz" onclick="setLang('uz')">
+              UZ
+            </button>
+            <button class="lang-option" data-lang="tj" onclick="setLang('tj')">
+              TJ
+            </button>
+          </div>
         </div>
 
         <!-- Theme toggle -->
-        <button onclick="toggleTheme()" class="p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer" aria-label="Toggle theme">
-          <i data-lucide="sun"  class="w-5 h-5 theme-icon-dark"></i>
+        <button
+          onclick="toggleTheme()"
+          class="p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors cursor-pointer"
+          aria-label="Toggle theme"
+          title="Tungi/Yorug' rejim"
+        >
+          <i data-lucide="sun" class="w-5 h-5 theme-icon-dark"></i>
           <i data-lucide="moon" class="w-5 h-5 theme-icon-light"></i>
         </button>
 
         <!-- Contact (desktop) -->
-        <a href="https://t.me/templates_uz_support" target="_blank" class="btn-secondary py-2.5 px-5 rounded-xl text-sm backdrop-blur-md font-semibold hidden sm:inline-flex">
+        <a
+          href="https://t.me/templates_uz_support"
+          target="_blank"
+          class="btn-secondary py-2.5 px-5 rounded-xl text-sm backdrop-blur-md font-semibold hidden sm:inline-flex"
+        >
           <i data-lucide="headphones" class="w-4 h-4"></i>
           <span data-i18n="nav_contact">Aloqa</span>
         </a>
 
         <!-- Hamburger (mobile only) -->
-        <button onclick="openMobileMenu()" class="md:hidden p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors" aria-label="Open menu">
+        <button
+          onclick="openMobileMenu()"
+          class="md:hidden p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors"
+          aria-label="Open menu"
+        >
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </nav>
+    </header>
 
-    <!-- ===== HERO ===== -->
-    <main class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 pt-14 sm:pt-24 pb-20">
+    <!-- ==================== HERO ==================== -->
+    <main
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 pt-14 sm:pt-24 pb-20"
+    >
       <div class="text-center max-w-5xl mx-auto">
+        <!-- Badge -->
         <div class="flex justify-center mb-10">
-          <span class="px-5 py-2 rounded-full bg-[var(--accent-soft)] text-[var(--accent-hover)] border border-[var(--accent-border)] text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm backdrop-blur-sm">
+          <span
+            class="px-5 py-2 rounded-full bg-[var(--accent-soft)] text-[var(--accent-hover)] border border-[var(--accent-border)] text-xs font-bold uppercase tracking-widest flex items-center gap-2 shadow-sm backdrop-blur-sm"
+          >
             <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-hover)] opacity-80"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-hover)]"></span>
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent-hover)] opacity-80"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--accent-hover)]"
+              ></span>
             </span>
-            <span data-i18n="badge_trust">O'zbekiston bo'ylab 10+ biznes ishonadi</span>
+            <span data-i18n="badge_trust"
+              >O'zbekiston bo'ylab 10+ biznes ishonadi</span
+            >
           </span>
         </div>
 
-        <h1 class="text-[clamp(2.8rem,8vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-8">
-          <span data-i18n="hero_title_1">Biznesingizni</span> <br class="sm:hidden" />
-          <span class="hero-gradient" data-i18n="hero_highlight">yagona qudratli</span>
+        <!-- Heading -->
+        <h1
+          class="text-[clamp(2.8rem,8vw,5rem)] font-extrabold leading-[1.08] tracking-tight text-white mb-8"
+        >
+          <span data-i18n="hero_title_1">Biznesingizni</span>
+          <br class="sm:hidden" />
+          <span class="hero-gradient" data-i18n="hero_highlight"
+            >yagona qudratli</span
+          >
           <span data-i18n="hero_title_2"> platformada boshqaring</span>
         </h1>
 
-        <p class="text-lg sm:text-2xl text-text-secondary max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
-          <span data-i18n="hero_desc">Vexa ekotizimi — savdo, ijara va mijozlar bilan ishlashni avtomatlashtiruvchi,</span>
-          <span class="text-white font-semibold" data-i18n="hero_ai"> sun'iy intellekt</span>
-          <span data-i18n="hero_desc_2"> bilan kuchaytirilgan zamonaviy yechimlar to'plami.</span>
+        <!-- Description -->
+        <p
+          class="text-lg sm:text-2xl text-text-secondary max-w-3xl mx-auto mb-12 leading-relaxed font-medium"
+        >
+          <span data-i18n="hero_desc"
+            >Vexa ekotizimi — savdo, ijara va mijozlar bilan ishlashni
+            avtomatlashtiruvchi,</span
+          >
+          <span class="text-white font-semibold" data-i18n="hero_ai">
+            sun'iy intellekt</span
+          >
+          <span data-i18n="hero_desc_2">
+            bilan kuchaytirilgan zamonaviy yechimlar to'plami.</span
+          >
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-          <a href="#products" class="btn-primary py-4 px-10 rounded-2xl text-base w-full sm:w-auto shadow-xl">
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-5"
+        >
+          <a
+            href="#products"
+            class="btn-primary py-4 px-10 rounded-2xl text-base w-full sm:w-auto shadow-xl"
+          >
             <i data-lucide="layers" class="w-5 h-5"></i>
             <span data-i18n="btn_products">Mahsulotlarni ko'rish</span>
           </a>
-          <a href="https://t.me/templates_uz_support" target="_blank" class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold">
+          <a
+            href="https://t.me/templates_uz_support"
+            target="_blank"
+            class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
+          >
             <i data-lucide="play-circle" class="w-5 h-5"></i>
             <span data-i18n="btn_demo">Demo so'rash</span>
           </a>
         </div>
 
         <!-- Trust badges -->
-        <div class="flex flex-wrap items-center justify-center gap-6 mt-14 text-xs font-semibold text-text-muted uppercase tracking-widest">
+        <div
+          class="flex flex-wrap items-center justify-center gap-6 mt-14 text-xs font-semibold text-text-muted uppercase tracking-widest"
+        >
           <div class="flex items-center gap-2">
             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
             <span data-i18n="trust_security">Bank darajasidagi xavfsizlik</span>
@@ -296,308 +397,425 @@
       </div>
     </main>
 
-    <!-- ===== PRODUCTS ===== -->
-    <section id="products" class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24">
+    <!-- ==================== PRODUCTS ==================== -->
+    <section
+      id="products"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24"
+    >
       <div class="text-center mb-16">
-        <h2 class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4" data-i18n="section_label">Ekotizim tarkibi</h2>
-        <p class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="section_title">Vexa dasturiy majmuasi</p>
-        <p class="text-text-secondary mt-4 max-w-xl mx-auto" data-i18n="section_desc">Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real vaqtda sinxronlanadi.</p>
+        <h2
+          class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4"
+          data-i18n="section_label"
+        >
+          Ekotizim tarkibi
+        </h2>
+        <p
+          class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
+          data-i18n="section_title"
+        >
+          Vexa dasturiy majmuasi
+        </p>
+        <p
+          class="text-text-secondary mt-4 max-w-xl mx-auto"
+          data-i18n="section_desc"
+        >
+          Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real
+          vaqtda sinxronlanadi.
+        </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
         <!-- Sales Vexa -->
-        <div class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10">
-          <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <div
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
             <i data-lucide="shopping-cart" class="w-36 h-36 text-[#a855f7]"></i>
           </div>
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#a855f7]/15 border border-[#a855f7]/25 mb-7 relative z-10">
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#a855f7]/15 border border-[#a855f7]/25 mb-7 relative z-10"
+          >
             <i data-lucide="store" class="w-8 h-8 text-[#c084fc]"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Sales Vexa</h3>
-          <p class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10" data-i18n="sales_desc">Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.</p>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Sales Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="sales_desc"
+          >
+            Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va
+            bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.
+          </p>
           <div class="flex items-center gap-4 relative z-10">
-            <a href="https://sales.vexa.uz" target="_blank" class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm">
-              <span data-i18n="link_login">Tizimga kirish</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <a
+              href="https://sales.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <span class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full" data-i18n="sales_badge">Sotuv +45%</span>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="sales_badge"
+              >Sotuv +45%</span
+            >
           </div>
         </div>
 
         <!-- Rent Vexa -->
-        <div class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10">
-          <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <div
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
             <i data-lucide="key" class="w-36 h-36 text-emerald-500"></i>
           </div>
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-emerald-500/15 border border-emerald-500/25 mb-7 relative z-10">
-            <i data-lucide="calendar-clock" class="w-8 h-8 text-emerald-400"></i>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-emerald-500/15 border border-emerald-500/25 mb-7 relative z-10"
+          >
+            <i
+              data-lucide="calendar-clock"
+              class="w-8 h-8 text-emerald-400"
+            ></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Rent Vexa</h3>
-          <p class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10" data-i18n="rent_desc">Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov grafigi. Avtomobildan kechki libosgacha.</p>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Rent Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="rent_desc"
+          >
+            Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov
+            grafigi. Avtomobildan kechki libosgacha.
+          </p>
           <div class="flex items-center gap-4 relative z-10">
-            <a href="https://rent.vexa.uz" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm">
-              <span data-i18n="link_login">Tizimga kirish</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <a
+              href="https://rent.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <span class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full" data-i18n="rent_badge">Bandlov +60%</span>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="rent_badge"
+              >Bandlov +60%</span
+            >
           </div>
         </div>
 
         <!-- CRM Vexa -->
-        <div class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10">
-          <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        <div
+          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
             <i data-lucide="users" class="w-36 h-36 text-blue-500"></i>
           </div>
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-500/15 border border-blue-500/25 mb-7 relative z-10">
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-500/15 border border-blue-500/25 mb-7 relative z-10"
+          >
             <i data-lucide="pie-chart" class="w-8 h-8 text-blue-400"></i>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">CRM Vexa</h3>
-          <p class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10" data-i18n="crm_desc">Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi, xodimlar KPI va sun'iy intellekt asosida tavsiyalar.</p>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            CRM Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="crm_desc"
+          >
+            Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi,
+            xodimlar KPI va sun'iy intellekt asosida tavsiyalar.
+          </p>
           <div class="flex items-center gap-4 relative z-10">
-            <a href="https://crm.vexa.uz" target="_blank" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm">
-              <span data-i18n="link_login">Tizimga kirish</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <a
+              href="https://crm.vexa.uz"
+              target="_blank"
+              class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <span class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full" data-i18n="crm_badge">Konversiya 2x</span>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="crm_badge"
+              >Konversiya 2x</span
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== FEATURES ===== -->
-    <section id="features" class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 border-t border-border-subtle">
+    <!-- ==================== FEATURES ==================== -->
+    <section
+      id="features"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 border-t border-border-subtle"
+    >
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group">
-          <i data-lucide="cloud-lightning" class="w-9 h-9 text-yellow-400 mb-5"></i>
-          <h4 class="text-lg font-bold text-white mb-3" data-i18n="feat_cloud_title">Bulutli texnologiya</h4>
-          <p class="text-sm text-text-muted leading-relaxed" data-i18n="feat_cloud_desc">Ma'lumotlaringiz xavfsiz bulutda. Dunyoning istalgan nuqtasidan real vaqt rejimida boshqaring.</p>
+        <div
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
+        >
+          <i
+            data-lucide="cloud-lightning"
+            class="w-9 h-9 text-yellow-400 mb-5"
+          ></i>
+          <h4
+            class="text-lg font-bold text-white mb-3"
+            data-i18n="feat_cloud_title"
+          >
+            Bulutli texnologiya
+          </h4>
+          <p
+            class="text-sm text-text-muted leading-relaxed"
+            data-i18n="feat_cloud_desc"
+          >
+            Ma'lumotlaringiz xavfsiz bulutda. Dunyoning istalgan nuqtasidan real
+            vaqt rejimida boshqaring.
+          </p>
         </div>
-        <div class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group">
+
+        <div
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
+        >
           <i data-lucide="smartphone" class="w-9 h-9 text-sky-400 mb-5"></i>
-          <h4 class="text-lg font-bold text-white mb-3" data-i18n="feat_mobile_title">Mobil ofis</h4>
-          <p class="text-sm text-text-muted leading-relaxed" data-i18n="feat_mobile_desc">Planshet va smartfon uchun to'liq moslashtirilgan. Biznesingiz doim yoningizda.</p>
+          <h4
+            class="text-lg font-bold text-white mb-3"
+            data-i18n="feat_mobile_title"
+          >
+            Mobil ofis
+          </h4>
+          <p
+            class="text-sm text-text-muted leading-relaxed"
+            data-i18n="feat_mobile_desc"
+          >
+            Planshet va smartfon uchun to'liq moslashtirilgan. Biznesingiz doim
+            yoningizda.
+          </p>
         </div>
-        <div class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group">
-          <i data-lucide="shield-check" class="w-9 h-9 text-emerald-400 mb-5"></i>
-          <h4 class="text-lg font-bold text-white mb-3" data-i18n="feat_security_title">Yuqori himoya</h4>
-          <p class="text-sm text-text-muted leading-relaxed" data-i18n="feat_security_desc">Shifrlash va har kungi zaxira nusxalari. Ma'lumotlaringiz yo'qolish xavfidan himoyalangan.</p>
+
+        <div
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
+        >
+          <i
+            data-lucide="shield-check"
+            class="w-9 h-9 text-emerald-400 mb-5"
+          ></i>
+          <h4
+            class="text-lg font-bold text-white mb-3"
+            data-i18n="feat_security_title"
+          >
+            Yuqori himoya
+          </h4>
+          <p
+            class="text-sm text-text-muted leading-relaxed"
+            data-i18n="feat_security_desc"
+          >
+            Shifrlash va har kungi zaxira nusxalari. Ma'lumotlaringiz yo'qolish
+            xavfidan himoyalangan.
+          </p>
         </div>
-        <div class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group">
+
+        <div
+          class="p-7 rounded-2xl border border-border-strong bg-white/5 hover:bg-white/10 transition-colors group"
+        >
           <i data-lucide="bar-chart-4" class="w-9 h-9 text-rose-400 mb-5"></i>
-          <h4 class="text-lg font-bold text-white mb-3" data-i18n="feat_analytics_title">Aniq analitika</h4>
-          <p class="text-sm text-text-muted leading-relaxed" data-i18n="feat_analytics_desc">Daromad, xarajat va foyda hisobotlari. AI yordamida prognozlar va tavsiyalar.</p>
+          <h4
+            class="text-lg font-bold text-white mb-3"
+            data-i18n="feat_analytics_title"
+          >
+            Aniq analitika
+          </h4>
+          <p
+            class="text-sm text-text-muted leading-relaxed"
+            data-i18n="feat_analytics_desc"
+          >
+            Daromad, xarajat va foyda hisobotlari. AI yordamida prognozlar va
+            tavsiyalar.
+          </p>
         </div>
       </div>
 
       <!-- Stats -->
-      <div id="stats" class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div
+        id="stats"
+        class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
+      >
         <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
           <span class="text-4xl font-extrabold text-white">10+</span>
-          <span class="block text-sm text-text-muted mt-2" data-i18n="stat_clients">faol mijoz</span>
+          <span
+            class="block text-sm text-text-muted mt-2"
+            data-i18n="stat_clients"
+            >faol mijoz</span
+          >
         </div>
         <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
           <span class="text-4xl font-extrabold text-white">12 ta</span>
-          <span class="block text-sm text-text-muted mt-2" data-i18n="stat_regions">viloyatda mavjud</span>
+          <span
+            class="block text-sm text-text-muted mt-2"
+            data-i18n="stat_regions"
+            >viloyatda mavjud</span
+          >
         </div>
         <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
           <span class="text-4xl font-extrabold text-white">99.9%</span>
-          <span class="block text-sm text-text-muted mt-2" data-i18n="stat_uptime">server barqarorligi</span>
+          <span
+            class="block text-sm text-text-muted mt-2"
+            data-i18n="stat_uptime"
+            >server barqarorligi</span
+          >
         </div>
         <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
           <span class="text-4xl font-extrabold text-white">24/7</span>
-          <span class="block text-sm text-text-muted mt-2" data-i18n="stat_support">texnik yordam</span>
+          <span
+            class="block text-sm text-text-muted mt-2"
+            data-i18n="stat_support"
+            >texnik yordam</span
+          >
         </div>
       </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="relative z-10 pt-20 pb-10 bg-[var(--bg-base)]">
       <div class="max-w-[90rem] mx-auto px-4 sm:px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14 border-b border-border-subtle pb-14">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14 border-b border-border-subtle pb-14"
+        >
+          <!-- Brand -->
           <div class="col-span-1">
             <a href="#" class="flex items-center gap-3 mb-6">
-              <div class="w-11 h-11 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5">
-                <img src="./images/logo.png" alt="Vexa Logo" class="w-full h-full object-contain rounded-lg" />
+              <div
+                class="w-11 h-11 flex items-center justify-center border border-border-strong rounded-2xl bg-white/5 p-1.5"
+              >
+                <img
+                  src="./images/logo.png"
+                  alt="Vexa Logo"
+                  class="w-full h-full object-contain rounded-lg"
+                />
               </div>
-              <span class="text-2xl font-extrabold text-white tracking-tight">Vexa.uz</span>
+              <span class="text-2xl font-extrabold text-white tracking-tight"
+                >Vexa.uz</span
+              >
             </a>
-            <p class="text-sm text-text-muted leading-relaxed mb-6 pr-4" data-i18n="footer_desc">O'zbekiston bo'ylab bizneslarni raqamlashtirish va avtomatlashtirish bo'yicha ishonchli texnologik hamkor.</p>
+            <p
+              class="text-sm text-text-muted leading-relaxed mb-6 pr-4"
+              data-i18n="footer_desc"
+            >
+              O'zbekiston bo'ylab bizneslarni raqamlashtirish va
+              avtomatlashtirish bo'yicha ishonchli texnologik hamkor.
+            </p>
           </div>
 
+          <!-- Products -->
           <div>
-            <h4 class="text-sm font-bold text-white uppercase tracking-widest mb-6" data-i18n="footer_products">Mahsulotlar</h4>
+            <h4
+              class="text-sm font-bold text-white uppercase tracking-widest mb-6"
+              data-i18n="footer_products"
+            >
+              Mahsulotlar
+            </h4>
             <ul class="space-y-4 text-sm font-medium text-text-muted">
-              <li><a href="https://sales.vexa.uz" target="_blank" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Sales Vexa</a></li>
-              <li><a href="https://rent.vexa.uz"  target="_blank" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Rent Vexa</a></li>
-              <li><a href="https://crm.vexa.uz"   target="_blank" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> CRM Vexa</a></li>
+              <li>
+                <a
+                  href="https://sales.vexa.uz"
+                  target="_blank"
+                  class="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Sales
+                  Vexa
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://rent.vexa.uz"
+                  target="_blank"
+                  class="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Rent
+                  Vexa
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://crm.vexa.uz"
+                  target="_blank"
+                  class="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i> CRM
+                  Vexa
+                </a>
+              </li>
             </ul>
           </div>
 
+          <!-- Contact -->
           <div>
-            <h4 class="text-sm font-bold text-white uppercase tracking-widest mb-6" data-i18n="footer_contact">Bog'lanish</h4>
+            <h4
+              class="text-sm font-bold text-white uppercase tracking-widest mb-6"
+              data-i18n="footer_contact"
+            >
+              Bog'lanish
+            </h4>
             <ul class="space-y-4 text-sm font-medium text-text-muted">
               <li class="flex items-center gap-3">
-                <i data-lucide="mail" class="w-4 h-4 flex-shrink-0 text-[var(--accent-hover)]"></i>
-                <a href="mailto:iilhomjonov77@gmail.com" class="hover:text-white transition-colors">iilhomjonov77@gmail.com</a>
+                <i
+                  data-lucide="mail"
+                  class="w-4 h-4 flex-shrink-0 text-[var(--accent-hover)]"
+                ></i>
+                <a
+                  href="mailto:iilhomjonov77@gmail.com"
+                  class="hover:text-white transition-colors"
+                  >iilhomjonov77@gmail.com</a
+                >
               </li>
               <li class="flex items-center gap-3">
-                <i data-lucide="send" class="w-4 h-4 flex-shrink-0 text-[var(--accent-alt)]"></i>
-                <a href="https://t.me/templates_uz_support" target="_blank" class="hover:text-white transition-colors">@templates_uz_support</a>
+                <i
+                  data-lucide="send"
+                  class="w-4 h-4 flex-shrink-0 text-[var(--accent-alt)]"
+                ></i>
+                <a
+                  href="https://t.me/templates_uz_support"
+                  target="_blank"
+                  class="hover:text-white transition-colors"
+                  >@templates_uz_support</a
+                >
               </li>
               <li class="flex items-center gap-3">
-                <i data-lucide="phone" class="w-4 h-4 flex-shrink-0 text-emerald-400"></i>
+                <i
+                  data-lucide="phone"
+                  class="w-4 h-4 flex-shrink-0 text-emerald-400"
+                ></i>
                 <span class="text-white font-semibold">+998 77 603 00 33</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
-          <p data-i18n="footer_rights">&copy; 2026 Vexa.uz — Barcha huquqlar himoyalangan. Yagona ekotizim.</p>
-          <div class="flex items-center gap-6">
-            <span class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span data-i18n="footer_status">Barcha tizimlar barqaror</span>
-            </span>
-          </div>
+        <!-- Bottom bar -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted"
+        >
+          <p data-i18n="footer_rights">
+            &copy; 2026 Vexa.uz — Barcha huquqlar himoyalangan. Yagona ekotizim.
+          </p>
+          <span class="flex items-center gap-2">
+            <span
+              class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+            ></span>
+            <span data-i18n="footer_status">Barcha tizimlar barqaror</span>
+          </span>
         </div>
       </div>
     </footer>
 
-    <script>
-      /* ===== TRANSLATIONS ===== */
-      const translations = {
-        uz: {
-          nav_products:"Mahsulotlar", nav_features:"Imkoniyatlar", nav_stats:"Statistika", nav_contact:"Aloqa",
-          badge_trust:"O'zbekiston bo'ylab 10+ biznes ishonadi",
-          hero_title_1:"Biznesingizni", hero_highlight:"yagona qudratli", hero_title_2:" platformada boshqaring",
-          hero_desc:"Vexa ekotizimi — savdo, ijara va mijozlar bilan ishlashni avtomatlashtiruvchi,",
-          hero_ai:" sun'iy intellekt", hero_desc_2:" bilan kuchaytirilgan zamonaviy yechimlar to'plami.",
-          btn_products:"Mahsulotlarni ko'rish", btn_demo:"Demo so'rash",
-          trust_security:"Bank darajasidagi xavfsizlik", trust_uptime:"99.9% ishonchlilik", trust_support:"24/7 qo'llab-quvvatlash",
-          section_label:"Ekotizim tarkibi", section_title:"Vexa dasturiy majmuasi",
-          section_desc:"Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real vaqtda sinxronlanadi.",
-          sales_desc:"Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.",
-          rent_desc:"Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov grafigi. Avtomobildan kechki libosgacha.",
-          crm_desc:"Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi, xodimlar KPI va sun'iy intellekt asosida tavsiyalar.",
-          link_login:"Tizimga kirish", sales_badge:"Sotuv +45%", rent_badge:"Bandlov +60%", crm_badge:"Konversiya 2x",
-          feat_cloud_title:"Bulutli texnologiya", feat_cloud_desc:"Ma'lumotlaringiz xavfsiz bulutda. Dunyoning istalgan nuqtasidan real vaqt rejimida boshqaring.",
-          feat_mobile_title:"Mobil ofis", feat_mobile_desc:"Planshet va smartfon uchun to'liq moslashtirilgan. Biznesingiz doim yoningizda.",
-          feat_security_title:"Yuqori himoya", feat_security_desc:"Shifrlash va har kungi zaxira nusxalari. Ma'lumotlaringiz yo'qolish xavfidan himoyalangan.",
-          feat_analytics_title:"Aniq analitika", feat_analytics_desc:"Daromad, xarajat va foyda hisobotlari. AI yordamida prognozlar va tavsiyalar.",
-          stat_clients:"faol mijoz", stat_regions:"viloyatda mavjud", stat_uptime:"server barqarorligi", stat_support:"texnik yordam",
-          footer_products:"Mahsulotlar", footer_contact:"Bog'lanish",
-          footer_desc:"O'zbekiston bo'ylab bizneslarni raqamlashtirish va avtomatlashtirish bo'yicha ishonchli texnologik hamkor.",
-          footer_rights:"© 2026 Vexa.uz — Barcha huquqlar himoyalangan. Yagona ekotizim.",
-          footer_status:"Barcha tizimlar barqaror",
-        },
-        ru: {
-          nav_products:"Продукты", nav_features:"Возможности", nav_stats:"Статистика", nav_contact:"Связь",
-          badge_trust:"10+ бизнесов доверяют нам по всему Узбекистану",
-          hero_title_1:"Управляйте бизнесом", hero_highlight:"в единой мощной", hero_title_2:" платформе",
-          hero_desc:"Экосистема Vexa — современный набор решений, автоматизирующий продажи, аренду и работу с клиентами,",
-          hero_ai:" усиленный искусственным интеллектом", hero_desc_2:".",
-          btn_products:"Смотреть продукты", btn_demo:"Запросить демо",
-          trust_security:"Безопасность банковского уровня", trust_uptime:"99.9% надёжность", trust_support:"Поддержка 24/7",
-          section_label:"Состав экосистемы", section_title:"Программный комплекс Vexa",
-          section_desc:"Каждый продукт органично связан друг с другом. Данные синхронизируются в реальном времени.",
-          sales_desc:"Умная автоматизация продаж: движение товаров, контроль склада и облачная касса. Управляйте всеми каналами продаж из одного места.",
-          rent_desc:"Полное управление арендным бизнесом: бронирование, договоры, график платежей. От автомобилей до вечерних нарядов.",
-          crm_desc:"Углубляйте отношения с клиентами: воронка продаж, KPI сотрудников и рекомендации на основе ИИ.",
-          link_login:"Войти", sales_badge:"Продажи +45%", rent_badge:"Бронирование +60%", crm_badge:"Конверсия 2x",
-          feat_cloud_title:"Облачные технологии", feat_cloud_desc:"Ваши данные в безопасном облаке. Управляйте в реальном времени из любой точки мира.",
-          feat_mobile_title:"Мобильный офис", feat_mobile_desc:"Полностью адаптирован для планшетов и смартфонов. Бизнес всегда рядом с вами.",
-          feat_security_title:"Высокая защита", feat_security_desc:"Шифрование и ежедневные резервные копии. Ваши данные защищены от потери.",
-          feat_analytics_title:"Точная аналитика", feat_analytics_desc:"Отчёты о доходах, расходах и прибыли. Прогнозы и рекомендации с помощью ИИ.",
-          stat_clients:"активных клиентов", stat_regions:"регионов охвата", stat_uptime:"стабильность серверов", stat_support:"техническая поддержка",
-          footer_products:"Продукты", footer_contact:"Связаться",
-          footer_desc:"Надёжный технологический партнёр по цифровизации и автоматизации бизнеса по всему Узбекистану.",
-          footer_rights:"© 2026 Vexa.uz — Все права защищены. Единая экосистема.",
-          footer_status:"Все системы работают стабильно",
-        },
-        en: {
-          nav_products:"Products", nav_features:"Features", nav_stats:"Statistics", nav_contact:"Contact",
-          badge_trust:"10+ businesses trust us across Uzbekistan",
-          hero_title_1:"Manage your business", hero_highlight:"in one powerful", hero_title_2:" platform",
-          hero_desc:"Vexa ecosystem — a modern suite of solutions automating sales, rental and customer management,",
-          hero_ai:" powered by AI", hero_desc_2:".",
-          btn_products:"View Products", btn_demo:"Request Demo",
-          trust_security:"Bank-level security", trust_uptime:"99.9% reliability", trust_support:"24/7 support",
-          section_label:"Ecosystem components", section_title:"Vexa Software Suite",
-          section_desc:"Every product is organically connected. Data syncs in real time.",
-          sales_desc:"Smart sales automation: inventory tracking, warehouse control and cloud POS. Manage all sales channels from one place.",
-          rent_desc:"Complete rental business management: bookings, contracts, payment schedules. From cars to evening wear.",
-          crm_desc:"Deepen customer relationships: sales funnel, employee KPIs and AI-based recommendations.",
-          link_login:"Log In", sales_badge:"Sales +45%", rent_badge:"Bookings +60%", crm_badge:"Conversion 2x",
-          feat_cloud_title:"Cloud Technology", feat_cloud_desc:"Your data is safe in the cloud. Manage in real time from anywhere in the world.",
-          feat_mobile_title:"Mobile Office", feat_mobile_desc:"Fully optimized for tablets and smartphones. Your business is always with you.",
-          feat_security_title:"High Security", feat_security_desc:"Encryption and daily backups. Your data is protected from loss.",
-          feat_analytics_title:"Precise Analytics", feat_analytics_desc:"Revenue, expense and profit reports. AI-powered forecasts and recommendations.",
-          stat_clients:"active clients", stat_regions:"regions covered", stat_uptime:"server stability", stat_support:"technical support",
-          footer_products:"Products", footer_contact:"Contact",
-          footer_desc:"A trusted technology partner for digitizing and automating businesses across Uzbekistan.",
-          footer_rights:"© 2026 Vexa.uz — All rights reserved. One ecosystem.",
-          footer_status:"All systems operational",
-        },
-        tj: {
-          nav_products:"Маҳсулотҳо", nav_features:"Имкониятҳо", nav_stats:"Омор", nav_contact:"Тамос",
-          badge_trust:"10+ корхона дар саросари Ӯзбекистон боварӣ дорад",
-          hero_title_1:"Бизнеси худро", hero_highlight:"дар як бонуфуз", hero_title_2:" платформа идора кунед",
-          hero_desc:"Экосистемаи Vexa — маҷмӯи муосири ҳалҳо барои автоматикунонии фурӯш, иҷора ва кор бо мизоҷон,",
-          hero_ai:" бо зеҳни сунъӣ", hero_desc_2:" таҳкимёфта.",
-          btn_products:"Дидани маҳсулотҳо", btn_demo:"Дархости демо",
-          trust_security:"Амнияти дараҷаи бонк", trust_uptime:"99.9% боэтимодӣ", trust_support:"Дастгирии 24/7",
-          section_label:"Таркиби экосистема", section_title:"Маҷмӯаи нармафзории Vexa",
-          section_desc:"Ҳар маҳсулот бо якдигар алоқаманд аст. Маълумот дар вақти воқеӣ ҳамоҳангсозӣ мешавад.",
-          sales_desc:"Автоматикунонии зираки фурӯш: ҳаракати мол, назорати анбор ва кассаи абрӣ. Ҳамаи каналҳои фурӯшро аз як ҷой идора кунед.",
-          rent_desc:"Идораи пурраи бизнеси иҷора: бронирование, шартномаҳо, ҷадвали пардохт. Аз мошин то либоси бегоҳӣ.",
-          crm_desc:"Муносибатҳоро бо мизоҷон амиқтар кунед: қифи фурӯш, KPI кормандон ва тавсияҳо бар асоси зеҳни сунъӣ.",
-          link_login:"Воридшавӣ", sales_badge:"Фурӯш +45%", rent_badge:"Бронирование +60%", crm_badge:"Конверсия 2x",
-          feat_cloud_title:"Технологияи абрӣ", feat_cloud_desc:"Маълумоти шумо дар абри бехатар. Аз ҳар нуқтаи ҷаҳон дар вақти воқеӣ идора кунед.",
-          feat_mobile_title:"Офиси мобилӣ", feat_mobile_desc:"Барои планшет ва смартфон пурра мутобиқ карда шудааст. Бизнесатон ҳамеша дар паҳлӯи шумост.",
-          feat_security_title:"Ҳимояи баланд", feat_security_desc:"Рамзгузорӣ ва нусхаҳои захиравии ҳаррӯза. Маълумоти шумо аз гум шудан ҳимоя карда шудааст.",
-          feat_analytics_title:"Аналитикаи дақиқ", feat_analytics_desc:"Ҳисоботи даромад, хароҷот ва фоида. Пешгӯиҳо ва тавсияҳо бо зеҳни сунъӣ.",
-          stat_clients:"мизоҷи фаъол", stat_regions:"вилоят дар дастрас", stat_uptime:"устувории сервер", stat_support:"кӯмаки техникӣ",
-          footer_products:"Маҳсулотҳо", footer_contact:"Тамос",
-          footer_desc:"Шарики технологии боэтимод барои рақамикунонӣ ва автоматикунонии бизнес дар саросари Ӯзбекистон.",
-          footer_rights:"© 2026 Vexa.uz — Ҳамаи ҳуқуқҳо маҳфуз аст. Як экосистема.",
-          footer_status:"Ҳамаи системаҳо устувор кор мекунанд",
-        },
-      };
-
-      let currentLang = localStorage.getItem("vexa_lang") || "uz";
-
-      function setLang(lang) {
-        currentLang = lang;
-        localStorage.setItem("vexa_lang", lang);
-        const t = translations[lang];
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.dataset.i18n;
-          if (t[key] !== undefined) el.textContent = t[key];
-        });
-        document.querySelectorAll(".lang-btn").forEach(btn => {
-          btn.classList.toggle("active", btn.dataset.lang === lang);
-        });
-        document.documentElement.lang = lang;
-      }
-
-      function toggleTheme() {
-        var isLight = document.documentElement.classList.toggle("light");
-        localStorage.setItem("vexa_theme", isLight ? "light" : "dark");
-      }
-
-      function openMobileMenu() {
-        document.getElementById("mobile-menu").classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-      function closeMobileMenu() {
-        document.getElementById("mobile-menu").classList.remove("open");
-        document.body.style.overflow = "";
-      }
-
-      // Close mobile menu on Escape
-      document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobileMenu(); });
-
-      // Init
-      lucide.createIcons();
-      setLang(currentLang);
-    </script>
+    <!-- Scripts (at end of body for performance) -->
+    <script src="./assets/script.js"></script>
   </body>
 </html>
