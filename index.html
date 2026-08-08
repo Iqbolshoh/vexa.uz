@@ -6,7 +6,52 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
     />
-    <title>Vexa • Yagona biznes ekotizimi</title>
+    <title>Vexa — Yagona biznes ekotizimi: savdo, ijara, CRM</title>
+
+    <!-- ==================== SEO ====================
+         The page ships its Uzbek copy in the HTML and swaps it client-side,
+         so crawlers index the Uzbek text — these tags describe that same
+         content. Language is switched in-place rather than per-URL, so there
+         is one canonical URL and deliberately no hreflang set. -->
+    <meta
+      name="description"
+      content="Vexa — savdo, ijara, CRM, restoran va tashkilot boshqaruvini bitta platformada birlashtirgan biznes ekotizimi. O'zbekiston bo'ylab 10+ biznes ishonadi."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://vexa.uz/" />
+    <meta name="theme-color" content="#05070a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f8ff" media="(prefers-color-scheme: light)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vexa" />
+    <meta property="og:url" content="https://vexa.uz/" />
+    <meta
+      property="og:title"
+      content="Vexa — Yagona biznes ekotizimi: savdo, ijara, CRM"
+    />
+    <meta
+      property="og:description"
+      content="Savdo, ijara, CRM, restoran va tashkilot boshqaruvi — bir-biri bilan bog'langan beshta mahsulot, ma'lumotlar real vaqtda sinxronlanadi."
+    />
+    <meta property="og:image" content="https://vexa.uz/images/logo.png" />
+    <meta property="og:image:alt" content="Vexa ekotizimi logotipi" />
+    <meta property="og:locale" content="uz_UZ" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="tg_TJ" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Vexa — Yagona biznes ekotizimi: savdo, ijara, CRM"
+    />
+    <meta
+      name="twitter:description"
+      content="Savdo, ijara, CRM, restoran va tashkilot boshqaruvi — bir-biri bilan bog'langan beshta mahsulot, ma'lumotlar real vaqtda sinxronlanadi."
+    />
+    <meta name="twitter:image" content="https://vexa.uz/images/logo.png" />
 
     <!-- Theme flash prevention (must stay inline in head) -->
     <script>
@@ -75,6 +120,105 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Structured data: the organisation, and the five products as an
+         explicit list so each one can surface as its own result. Only
+         facts already stated on the page are described here. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://vexa.uz/#organization",
+            "name": "Vexa",
+            "url": "https://vexa.uz/",
+            "logo": "https://vexa.uz/images/logo.png",
+            "sameAs": ["https://t.me/templates_uz_support"],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "iilhomjonov77@gmail.com",
+              "availableLanguage": ["uz", "ru", "en", "tg"]
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://vexa.uz/#website",
+            "url": "https://vexa.uz/",
+            "name": "Vexa",
+            "inLanguage": ["uz", "ru", "en", "tg"],
+            "publisher": { "@id": "https://vexa.uz/#organization" }
+          },
+          {
+            "@type": "ItemList",
+            "name": "Vexa dasturiy majmuasi",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Sales Vexa",
+                  "url": "https://sales.vexa.uz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va bulutli kassa."
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Rent Vexa",
+                  "url": "https://rent.vexa.uz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov grafigi."
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "CRM Vexa",
+                  "url": "https://crm.vexa.uz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Mijozlar bilan aloqalar: savdo voronkasi, xodimlar KPI va tavsiyalar."
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Restaurant Vexa",
+                  "url": "https://restaurant.vexa.uz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Restoran va kafelar uchun: stollar bandligi, menyu va oshxona buyurtmalari."
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Organization Vexa",
+                  "url": "https://organization.vexa.uz",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Tashkilot ichki boshqaruvi: bo'limlar tuzilmasi, vazifalar, davomat va hujjat aylanmasi."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body
