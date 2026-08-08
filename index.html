@@ -179,7 +179,7 @@
           </div>
           <a
             href="https://t.me/templates_uz_support"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             onclick="closeMobileMenu()"
             class="btn-secondary py-2.5 px-5 rounded-xl text-sm font-semibold"
           >
@@ -285,7 +285,7 @@
         <!-- Contact (desktop) -->
         <a
           href="https://t.me/templates_uz_support"
-          target="_blank"
+          target="_blank" rel="noopener noreferrer"
           class="btn-secondary py-2.5 px-5 rounded-xl text-sm backdrop-blur-md font-semibold hidden sm:inline-flex"
         >
           <i data-lucide="headphones" class="w-4 h-4"></i>
@@ -369,7 +369,7 @@
           </a>
           <a
             href="https://t.me/templates_uz_support"
-            target="_blank"
+            target="_blank" rel="noopener noreferrer"
             class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
           >
             <i data-lucide="play-circle" class="w-5 h-5"></i>
@@ -424,10 +424,12 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+      <!-- 6 columns, each card spanning 2, so the 5 products lay out 3-over-2
+           with the trailing row centred (the 4th card starts at column 2). -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-7">
         <!-- Sales Vexa -->
         <div
-          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
@@ -452,7 +454,7 @@
           <div class="flex items-center gap-4 relative z-10">
             <a
               href="https://sales.vexa.uz"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm"
             >
               <span data-i18n="link_login">Tizimga kirish</span>
@@ -468,7 +470,7 @@
 
         <!-- Rent Vexa -->
         <div
-          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
@@ -496,7 +498,7 @@
           <div class="flex items-center gap-4 relative z-10">
             <a
               href="https://rent.vexa.uz"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm"
             >
               <span data-i18n="link_login">Tizimga kirish</span>
@@ -512,7 +514,7 @@
 
         <!-- CRM Vexa -->
         <div
-          class="feature-card p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
@@ -537,7 +539,7 @@
           <div class="flex items-center gap-4 relative z-10">
             <a
               href="https://crm.vexa.uz"
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm"
             >
               <span data-i18n="link_login">Tizimga kirish</span>
@@ -547,6 +549,92 @@
               class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
               data-i18n="crm_badge"
               >Konversiya 2x</span
+            >
+          </div>
+        </div>
+
+        <!-- Restaurant Vexa — starts at column 2 so this trailing row of two
+             sits centred under the three above it. -->
+        <div
+          class="feature-card md:col-span-2 md:col-start-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i
+              data-lucide="utensils-crossed"
+              class="w-36 h-36 text-amber-500"
+            ></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-amber-500/15 border border-amber-500/25 mb-7 relative z-10"
+          >
+            <i data-lucide="chef-hat" class="w-8 h-8 text-amber-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Restaurant Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="restaurant_desc"
+          >
+            Restoran va kafelar uchun: stollar bandligi, menyu va oshxona
+            buyurtmalari, ofitsiant hisoboti bir tizimda.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://restaurant.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-amber-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="restaurant_badge"
+              >Tez kunda</span
+            >
+          </div>
+        </div>
+
+        <!-- Organization Vexa -->
+        <div
+          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i data-lucide="building-2" class="w-36 h-36 text-cyan-500"></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-cyan-500/15 border border-cyan-500/25 mb-7 relative z-10"
+          >
+            <i data-lucide="network" class="w-8 h-8 text-cyan-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Organization Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="organization_desc"
+          >
+            Tashkilot ichki boshqaruvi: bo'limlar va xodimlar tuzilmasi,
+            vazifalar, davomat va hujjat aylanmasi.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://organization.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="organization_badge"
+              >Tez kunda</span
             >
           </div>
         </div>
@@ -725,7 +813,7 @@
               <li>
                 <a
                   href="https://sales.vexa.uz"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors flex items-center gap-2"
                 >
                   <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Sales
@@ -735,7 +823,7 @@
               <li>
                 <a
                   href="https://rent.vexa.uz"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors flex items-center gap-2"
                 >
                   <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Rent
@@ -745,11 +833,31 @@
               <li>
                 <a
                   href="https://crm.vexa.uz"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors flex items-center gap-2"
                 >
                   <i data-lucide="external-link" class="w-3.5 h-3.5"></i> CRM
                   Vexa
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://restaurant.vexa.uz"
+                  target="_blank" rel="noopener noreferrer"
+                  class="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  Restaurant Vexa
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://organization.vexa.uz"
+                  target="_blank" rel="noopener noreferrer"
+                  class="hover:text-white transition-colors flex items-center gap-2"
+                >
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  Organization Vexa
                 </a>
               </li>
             </ul>
@@ -782,7 +890,7 @@
                 ></i>
                 <a
                   href="https://t.me/templates_uz_support"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   class="hover:text-white transition-colors"
                   >@templates_uz_support</a
                 >

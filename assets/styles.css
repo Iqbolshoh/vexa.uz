@@ -286,7 +286,17 @@ html.light .mobile-nav-link:hover {
    ============================================================ */
 html.light .text-white { color: var(--text-primary) !important; }
 html.light .hover\:text-white:hover { color: #6d28d9 !important; }
-html.light .text-\[\#c084fc\] { color: #7c3aed !important; }
+
+/* Product-card link colours.
+   The -400/-500 tints are tuned for the dark card and drop to 1.7–2.5:1 on the
+   white light-mode card — effectively unreadable. Each one darkens to its -600/
+   -700 sibling here, clearing 4.5:1 while keeping the card's identity colour.
+   (Sales was already handled this way; the rest had been missed.) */
+html.light .text-\[\#c084fc\]  { color: #7c3aed !important; } /* Sales  5.70:1 */
+html.light .text-emerald-400   { color: #047857 !important; } /* Rent   5.48:1 */
+html.light .text-blue-400      { color: #2563eb !important; } /* CRM    5.17:1 */
+html.light .text-amber-400     { color: #b45309 !important; } /* Rest.  5.02:1 */
+html.light .text-cyan-400      { color: #0e7490 !important; } /* Org.   5.36:1 */
 
 html.light .bg-white\/5,
 html.light .bg-white\/\[0\.02\] { background-color: rgba(99, 76, 231, 0.055) !important; }
