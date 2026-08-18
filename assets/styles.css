@@ -506,17 +506,11 @@ html.light .service-card.selected {
     display: none;
   }
   .service-card.selected { background: var(--accent-soft); }
-  .service-badge {
-    position: static;
-    grid-area: name;
-    justify-self: end;
-    align-self: start;
-    font-size: 0.55rem;
-    padding: 0.15rem 0.45rem;
-    margin-top: 0.15rem;
-    margin-right: 0.35rem;
-    z-index: 1;
-  }
+  .service-badge { display: none; }
+  .service-name { font-size: 0.95rem; line-height: 1.2; }
+  .service-price-value { font-size: 1.15rem; }
+  .service-price-from { display: none; }
+  .service-price { padding-left: 0.35rem; }
 }
 
 /* ============================================================
@@ -623,10 +617,21 @@ html.light .wz-step.is-done .wz-step-title { color: #047857; }
 html.light .wz-chosen { color: #047857; }
 .wz-chosen span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Step 1 grid: 5 cards inside the left column */
+/* Step 1 grid: 5 cards inside the left column.
+   Phones: rows. sm–xl: 2 per row on a 4-col grid (odd last card centred).
+   xl+: 3 per row on a 6-col grid, trailing row of 2 centred. */
 .wz-types { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
-@media (min-width: 640px) { .wz-types { grid-template-columns: repeat(2, 1fr); gap: 1rem; } }
-@media (min-width: 1024px) { .wz-types { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 640px) {
+  .wz-types { grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .wz-types .service-card { grid-column: span 2; }
+  .wz-types .service-card:last-child:nth-child(odd) { grid-column: 2 / 4; }
+}
+@media (min-width: 1280px) {
+  .wz-types { grid-template-columns: repeat(6, 1fr); }
+  .wz-types .service-card:last-child:nth-child(odd) { grid-column: span 2; }
+  .wz-types .service-card:nth-child(3n + 1):nth-last-child(2) { grid-column: 2 / 4; }
+  .wz-types .service-card:nth-child(3n + 2):last-child { grid-column: 4 / 6; }
+}
 .wz-types .service-card { padding: 1.25rem; border-radius: 1.4rem; }
 .wz-types .service-icon { width: 3rem; height: 3rem; margin-bottom: 1rem; }
 .wz-types .service-icon svg { width: 1.5rem; height: 1.5rem; }
@@ -874,3 +879,6 @@ html.light .wz-review-item { background: #f7f8ff; }
   .wz-review-item { grid-template-columns: 1fr auto; }
   .wz-review-k { display: none; }
 }
+
+/* Anchor targets sit below the sticky header when navigated to */
+#products, #services, #features, #stats, #wz-stepper { scroll-margin-top: 5.5rem; }

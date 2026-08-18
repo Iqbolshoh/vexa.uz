@@ -122,7 +122,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles.css?v=d543edb1" />
+    <link rel="stylesheet" href="./assets/styles.css?v=49b5fc6e" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -298,17 +298,6 @@
         <!-- Nav links -->
         <nav class="flex flex-col gap-1 mb-6">
           <a
-            href="#services"
-            onclick="closeMobileMenu()"
-            class="mobile-nav-link"
-          >
-            <i
-              data-lucide="badge-dollar-sign"
-              class="w-4 h-4 text-[var(--accent-hover)]"
-            ></i>
-            <span data-i18n="nav_services">Xizmatlar</span>
-          </a>
-          <a
             href="#products"
             onclick="closeMobileMenu()"
             class="mobile-nav-link"
@@ -318,6 +307,17 @@
               class="w-4 h-4 text-[var(--accent-hover)]"
             ></i>
             <span data-i18n="nav_products">Mahsulotlar</span>
+          </a>
+          <a
+            href="#services"
+            onclick="closeMobileMenu()"
+            class="mobile-nav-link"
+          >
+            <i
+              data-lucide="badge-dollar-sign"
+              class="w-4 h-4 text-[var(--accent-hover)]"
+            ></i>
+            <span data-i18n="nav_services">Xizmatlar</span>
           </a>
           <a
             href="#features"
@@ -396,18 +396,18 @@
       </a>
 
       <!-- Desktop nav links -->
-      <div class="hidden md:flex items-center gap-8">
-        <a
-          href="#services"
-          data-i18n="nav_services"
-          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
-          >Xizmatlar</a
-        >
+      <div class="hidden lg:flex items-center gap-8">
         <a
           href="#products"
           data-i18n="nav_products"
           class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
           >Mahsulotlar</a
+        >
+        <a
+          href="#services"
+          data-i18n="nav_services"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
+          >Xizmatlar</a
         >
         <a
           href="#features"
@@ -475,7 +475,7 @@
         <!-- Hamburger (mobile only) -->
         <button
           onclick="openMobileMenu()"
-          class="md:hidden p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors"
+          class="lg:hidden p-2.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] rounded-xl border border-transparent hover:border-[var(--border-subtle)] transition-colors"
           aria-label="Open menu"
         >
           <i data-lucide="menu" class="w-5 h-5"></i>
@@ -576,6 +576,250 @@
       </div>
     </main>
 
+    <!-- ==================== PRODUCTS ==================== -->
+    <section
+      id="products"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24"
+    >
+      <div class="text-center mb-16">
+        <h2
+          class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4"
+          data-i18n="section_label"
+        >
+          Ekotizim tarkibi
+        </h2>
+        <p
+          class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
+          data-i18n="section_title"
+        >
+          Vexa dasturiy majmuasi
+        </p>
+        <p
+          class="text-text-secondary mt-4 max-w-xl mx-auto"
+          data-i18n="section_desc"
+        >
+          Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real
+          vaqtda sinxronlanadi.
+        </p>
+      </div>
+
+      <!-- 6-column grid: 2 cards per row from md (5th centred), 3 per row from
+           xl with the trailing row centred (4th card starts at column 2). -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-7">
+        <!-- Sales Vexa -->
+        <div
+          class="feature-card md:col-span-3 xl:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i data-lucide="shopping-cart" class="w-36 h-36 text-[#a855f7]"></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#a855f7]/15 border border-[#a855f7]/25 mb-7 relative z-10"
+          >
+            <i data-lucide="store" class="w-8 h-8 text-[#c084fc]"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Sales Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="sales_desc"
+          >
+            Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va
+            bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://sales.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="sales_badge"
+              >Sotuv +45%</span
+            >
+          </div>
+        </div>
+
+        <!-- Rent Vexa -->
+        <div
+          class="feature-card md:col-span-3 xl:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i data-lucide="key" class="w-36 h-36 text-emerald-500"></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-emerald-500/15 border border-emerald-500/25 mb-7 relative z-10"
+          >
+            <i
+              data-lucide="calendar-clock"
+              class="w-8 h-8 text-emerald-400"
+            ></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Rent Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="rent_desc"
+          >
+            Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov
+            grafigi. Avtomobildan kechki libosgacha.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://rent.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="rent_badge"
+              >Bandlov +60%</span
+            >
+          </div>
+        </div>
+
+        <!-- CRM Vexa -->
+        <div
+          class="feature-card md:col-span-3 xl:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i data-lucide="users" class="w-36 h-36 text-blue-500"></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-500/15 border border-blue-500/25 mb-7 relative z-10"
+          >
+            <i data-lucide="pie-chart" class="w-8 h-8 text-blue-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            CRM Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="crm_desc"
+          >
+            Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi,
+            xodimlar KPI va sun'iy intellekt asosida tavsiyalar.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://crm.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="crm_badge"
+              >Konversiya 2x</span
+            >
+          </div>
+        </div>
+
+        <!-- Restaurant Vexa — starts at column 2 so this trailing row of two
+             sits centred under the three above it. -->
+        <div
+          class="feature-card md:col-span-3 md:col-start-auto xl:col-span-2 xl:col-start-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i
+              data-lucide="utensils-crossed"
+              class="w-36 h-36 text-amber-500"
+            ></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-amber-500/15 border border-amber-500/25 mb-7 relative z-10"
+          >
+            <i data-lucide="chef-hat" class="w-8 h-8 text-amber-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Restaurant Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="restaurant_desc"
+          >
+            Restoran va kafelar uchun: stollar bandligi, menyu va oshxona
+            buyurtmalari, ofitsiant hisoboti bir tizimda.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://restaurant.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-amber-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="restaurant_badge"
+              >Tez kunda</span
+            >
+          </div>
+        </div>
+
+        <!-- Organization Vexa -->
+        <div
+          class="feature-card md:col-span-3 md:col-start-2 xl:col-span-2 xl:col-start-auto p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+        >
+          <div
+            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            <i data-lucide="building-2" class="w-36 h-36 text-cyan-500"></i>
+          </div>
+          <div
+            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-cyan-500/15 border border-cyan-500/25 mb-7 relative z-10"
+          >
+            <i data-lucide="network" class="w-8 h-8 text-cyan-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
+            Organization Vexa
+          </h3>
+          <p
+            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
+            data-i18n="organization_desc"
+          >
+            Tashkilot ichki boshqaruvi: bo'limlar va xodimlar tuzilmasi,
+            vazifalar, davomat va hujjat aylanmasi.
+          </p>
+          <div class="flex items-center gap-4 relative z-10">
+            <a
+              href="https://organization.vexa.uz"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-white transition-colors text-sm"
+            >
+              <span data-i18n="link_login">Tizimga kirish</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <span
+              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
+              data-i18n="organization_badge"
+              >Tez kunda</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ==================== SERVICES — 3-step order wizard ====================
          Step 1: pick ONE service type (static cards below; base price in
          data-price). Step 2: options for that type. Step 3: add-ons + note.
@@ -583,7 +827,7 @@
          the receipt and the Telegram message are computed from the selection. -->
     <section
       id="services"
-      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-16 sm:py-24"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24 border-t border-border-subtle"
     >
       <div class="text-center mb-10 sm:mb-12">
         <h2
@@ -765,7 +1009,7 @@
         </div>
 
         <!-- Right: live receipt -->
-        <aside class="lg:col-span-4 lg:sticky lg:top-24">
+        <aside class="hidden lg:block lg:col-span-4 lg:sticky lg:top-24">
           <div class="wz-card wz-receipt">
             <div class="wz-receipt-head">
               <span class="wz-receipt-title">
@@ -821,249 +1065,6 @@
       </div>
     </div>
 
-    <!-- ==================== PRODUCTS ==================== -->
-    <section
-      id="products"
-      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-20 sm:py-24"
-    >
-      <div class="text-center mb-16">
-        <h2
-          class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4"
-          data-i18n="section_label"
-        >
-          Ekotizim tarkibi
-        </h2>
-        <p
-          class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
-          data-i18n="section_title"
-        >
-          Vexa dasturiy majmuasi
-        </p>
-        <p
-          class="text-text-secondary mt-4 max-w-xl mx-auto"
-          data-i18n="section_desc"
-        >
-          Har bir mahsulot bir-biri bilan uzviy bog'langan. Ma'lumotlar real
-          vaqtda sinxronlanadi.
-        </p>
-      </div>
-
-      <!-- 6 columns, each card spanning 2, so the 5 products lay out 3-over-2
-           with the trailing row centred (the 4th card starts at column 2). -->
-      <div class="grid grid-cols-1 md:grid-cols-6 gap-7">
-        <!-- Sales Vexa -->
-        <div
-          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i data-lucide="shopping-cart" class="w-36 h-36 text-[#a855f7]"></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-[#a855f7]/15 border border-[#a855f7]/25 mb-7 relative z-10"
-          >
-            <i data-lucide="store" class="w-8 h-8 text-[#c084fc]"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            Sales Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="sales_desc"
-          >
-            Aqlli savdo avtomatizatsiyasi: tovar harakati, ombor nazorati va
-            bulutli kassa. Barcha savdo kanallarini bir joydan boshqaring.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://sales.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-[#c084fc] font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="sales_badge"
-              >Sotuv +45%</span
-            >
-          </div>
-        </div>
-
-        <!-- Rent Vexa -->
-        <div
-          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i data-lucide="key" class="w-36 h-36 text-emerald-500"></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-emerald-500/15 border border-emerald-500/25 mb-7 relative z-10"
-          >
-            <i
-              data-lucide="calendar-clock"
-              class="w-8 h-8 text-emerald-400"
-            ></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            Rent Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="rent_desc"
-          >
-            Ijara biznesi uchun to'liq boshqaruv: bronlash, shartnomalar, to'lov
-            grafigi. Avtomobildan kechki libosgacha.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://rent.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="rent_badge"
-              >Bandlov +60%</span
-            >
-          </div>
-        </div>
-
-        <!-- CRM Vexa -->
-        <div
-          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i data-lucide="users" class="w-36 h-36 text-blue-500"></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-blue-500/15 border border-blue-500/25 mb-7 relative z-10"
-          >
-            <i data-lucide="pie-chart" class="w-8 h-8 text-blue-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            CRM Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="crm_desc"
-          >
-            Mijozlar bilan aloqalarni chuqurlashtiring: savdo voronkasi,
-            xodimlar KPI va sun'iy intellekt asosida tavsiyalar.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://crm.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="crm_badge"
-              >Konversiya 2x</span
-            >
-          </div>
-        </div>
-
-        <!-- Restaurant Vexa — starts at column 2 so this trailing row of two
-             sits centred under the three above it. -->
-        <div
-          class="feature-card md:col-span-2 md:col-start-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i
-              data-lucide="utensils-crossed"
-              class="w-36 h-36 text-amber-500"
-            ></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-amber-500/15 border border-amber-500/25 mb-7 relative z-10"
-          >
-            <i data-lucide="chef-hat" class="w-8 h-8 text-amber-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            Restaurant Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="restaurant_desc"
-          >
-            Restoran va kafelar uchun: stollar bandligi, menyu va oshxona
-            buyurtmalari, ofitsiant hisoboti bir tizimda.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://restaurant.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-amber-400 font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="restaurant_badge"
-              >Tez kunda</span
-            >
-          </div>
-        </div>
-
-        <!-- Organization Vexa -->
-        <div
-          class="feature-card md:col-span-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i data-lucide="building-2" class="w-36 h-36 text-cyan-500"></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-cyan-500/15 border border-cyan-500/25 mb-7 relative z-10"
-          >
-            <i data-lucide="network" class="w-8 h-8 text-cyan-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            Organization Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="organization_desc"
-          >
-            Tashkilot ichki boshqaruvi: bo'limlar va xodimlar tuzilmasi,
-            vazifalar, davomat va hujjat aylanmasi.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://organization.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="organization_badge"
-              >Tez kunda</span
-            >
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ==================== FEATURES ==================== -->
     <section
@@ -1348,6 +1349,6 @@
     </footer>
 
     <!-- Scripts (at end of body for performance) -->
-    <script src="./assets/script.js?v=d543edb1"></script>
+    <script src="./assets/script.js?v=49b5fc6e"></script>
   </body>
 </html>
