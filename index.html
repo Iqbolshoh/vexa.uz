@@ -122,7 +122,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles.css?v=ed356f6" />
+    <link rel="stylesheet" href="./assets/styles.css?v=711325d9" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -574,15 +574,16 @@
       </div>
     </main>
 
-    <!-- ==================== SERVICES (Xizmatlar) ==================== -->
-    <!-- Prices live only in data-price (USD). Cards toggle on click; the
-         total and the Telegram order message are computed from the
-         selected cards, so changing a price here updates everything. -->
+    <!-- ==================== SERVICES — 3-step order wizard ====================
+         Step 1: pick ONE service type (static cards below; base price in
+         data-price). Step 2: options for that type. Step 3: add-ons + note.
+         Options/add-ons and their prices live in WIZARD (assets/script.js);
+         the receipt and the Telegram message are computed from the selection. -->
     <section
       id="services"
       class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-16 sm:py-24"
     >
-      <div class="text-center mb-12 sm:mb-14">
+      <div class="text-center mb-10 sm:mb-12">
         <h2
           class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4"
           data-i18n="services_label"
@@ -599,179 +600,229 @@
           class="text-text-secondary mt-4 max-w-xl mx-auto"
           data-i18n="services_desc"
         >
-          Kerakli xizmatlarni belgilang — narx darhol hisoblanadi. Keyin bir
-          bosishda Telegram orqali buyurtma bering.
+          3 ta oddiy qadam: xizmatni tanlang, imkoniyatlarni belgilang va
+          Telegram orqali buyurtma yuboring. Narx jonli hisoblanadi.
         </p>
       </div>
 
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5"
-        role="group"
-        aria-label="Xizmatlar"
-      >
-        <!-- Landing page -->
-        <button
-          type="button"
-          class="service-card"
-          data-service="landing"
-          data-price="100"
-          aria-pressed="false"
-        >
-          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-          <span class="service-icon bg-sky-500/15 border-sky-500/25">
-            <i data-lucide="layout-template" class="w-7 h-7 text-sky-400"></i>
-          </span>
-          <span class="service-name" data-i18n="svc_landing_title">Landing page</span>
-          <span class="service-desc" data-i18n="svc_landing_desc"
-            >Bir sahifali sotuvchi sayt. Reklama va ariza yig'ish uchun ideal.</span
-          >
-          <span class="service-meta">
-            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-            <span data-i18n="svc_landing_time">3–5 kun</span>
-          </span>
-          <span class="service-price">
-            <span class="service-price-from" data-i18n="svc_from">dan</span>
-            <span class="service-price-value">$100</span>
-          </span>
-        </button>
+      <!-- Stepper -->
+      <ol class="wz-stepper" id="wz-stepper">
+        <li class="wz-step is-current" data-step="1">
+          <button type="button" class="wz-step-btn" onclick="wzGo(1)">
+            <span class="wz-step-num"><span>1</span><i data-lucide="check" class="w-4 h-4"></i></span>
+            <span class="wz-step-text">
+              <span class="wz-step-label"><span data-i18n="wz_step">Qadam</span> 1</span>
+              <span class="wz-step-title" data-i18n="wz_step1_title">Xizmat turi</span>
+            </span>
+          </button>
+        </li>
+        <li class="wz-step" data-step="2">
+          <button type="button" class="wz-step-btn" onclick="wzGo(2)" disabled>
+            <span class="wz-step-num"><span>2</span><i data-lucide="check" class="w-4 h-4"></i></span>
+            <span class="wz-step-text">
+              <span class="wz-step-label"><span data-i18n="wz_step">Qadam</span> 2</span>
+              <span class="wz-step-title" data-i18n="wz_step2_title">Imkoniyatlar</span>
+            </span>
+          </button>
+        </li>
+        <li class="wz-step" data-step="3">
+          <button type="button" class="wz-step-btn" onclick="wzGo(3)" disabled>
+            <span class="wz-step-num"><span>3</span><i data-lucide="check" class="w-4 h-4"></i></span>
+            <span class="wz-step-text">
+              <span class="wz-step-label"><span data-i18n="wz_step">Qadam</span> 3</span>
+              <span class="wz-step-title" data-i18n="wz_step3_title">Yakunlash</span>
+            </span>
+          </button>
+        </li>
+      </ol>
 
-        <!-- Website -->
-        <button
-          type="button"
-          class="service-card"
-          data-service="website"
-          data-price="700"
-          aria-pressed="false"
-        >
-          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-          <span class="service-badge" data-i18n="svc_popular">Mashhur</span>
-          <span class="service-icon bg-[#a855f7]/15 border-[#a855f7]/25">
-            <i data-lucide="globe" class="w-7 h-7 text-[#c084fc]"></i>
-          </span>
-          <span class="service-name" data-i18n="svc_website_title">Veb-sayt</span>
-          <span class="service-desc" data-i18n="svc_website_desc"
-            >Korporativ sayt, katalog yoki portal. Admin panel, SEO va ko'p tillilik bilan.</span
-          >
-          <span class="service-meta">
-            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-            <span data-i18n="svc_website_time">2–4 hafta</span>
-          </span>
-          <span class="service-price">
-            <span class="service-price-from" data-i18n="svc_from">dan</span>
-            <span class="service-price-value">$700</span>
-          </span>
-        </button>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Left: step panels -->
+        <div class="lg:col-span-8 min-w-0">
+          <div class="wz-card">
+            <div class="wz-head">
+              <div class="min-w-0">
+                <span class="wz-badge">
+                  <span data-i18n="wz_step">Qadam</span>
+                  <span id="wz-step-now">1</span> / 3
+                </span>
+                <h3 class="wz-heading" id="wz-heading" data-i18n="wz_step1_heading">
+                  Xizmat turini tanlang
+                </h3>
+                <p class="wz-sub" id="wz-sub" data-i18n="wz_step1_sub">
+                  Sizga kerakli xizmatni belgilang — keyingi qadam avtomatik ochiladi
+                </p>
+              </div>
+              <button type="button" class="wz-chosen hidden" id="wz-chosen" onclick="wzGo(1)">
+                <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                <span id="wz-chosen-name"></span>
+                <i data-lucide="pencil" class="w-3 h-3 opacity-60"></i>
+              </button>
+            </div>
 
-        <!-- Online shop -->
-        <button
-          type="button"
-          class="service-card"
-          data-service="shop"
-          data-price="500"
-          aria-pressed="false"
-        >
-          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-          <span class="service-icon bg-emerald-500/15 border-emerald-500/25">
-            <i data-lucide="shopping-bag" class="w-7 h-7 text-emerald-400"></i>
-          </span>
-          <span class="service-name" data-i18n="svc_shop_title">Internet-do'kon</span>
-          <span class="service-desc" data-i18n="svc_shop_desc"
-            >Savat, buyurtma va Payme/Click to'lovi bilan onlayn do'kon.</span
-          >
-          <span class="service-meta">
-            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-            <span data-i18n="svc_shop_time">3–5 hafta</span>
-          </span>
-          <span class="service-price">
-            <span class="service-price-from" data-i18n="svc_from">dan</span>
-            <span class="service-price-value">$500</span>
-          </span>
-        </button>
+            <!-- STEP 1 — service type -->
+            <div class="wz-panel" id="wz-panel-1">
+              <div class="wz-types" role="radiogroup" aria-label="Xizmat turi">
+                <button type="button" class="service-card" data-type="landing" data-price="100" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-icon bg-sky-500/15 border-sky-500/25">
+                    <i data-lucide="layout-template" class="w-7 h-7 text-sky-400"></i>
+                  </span>
+                  <span class="service-name" data-i18n="svc_landing_title">Landing page</span>
+                  <span class="service-desc" data-i18n="svc_landing_desc">Bir sahifali sotuvchi sayt. Reklama va ariza yig'ish uchun ideal.</span>
+                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_landing_time">3–5 kun</span></span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$100</span></span>
+                </button>
 
-        <!-- Telegram bot -->
-        <button
-          type="button"
-          class="service-card"
-          data-service="bot"
-          data-price="200"
-          aria-pressed="false"
-        >
-          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-          <span class="service-icon bg-blue-500/15 border-blue-500/25">
-            <i data-lucide="send" class="w-7 h-7 text-blue-400"></i>
-          </span>
-          <span class="service-name" data-i18n="svc_bot_title">Telegram bot</span>
-          <span class="service-desc" data-i18n="svc_bot_desc"
-            >Savdo, ariza qabul qilish, Mini App va avto-javob botlari.</span
-          >
-          <span class="service-meta">
-            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-            <span data-i18n="svc_bot_time">5–10 kun</span>
-          </span>
-          <span class="service-price">
-            <span class="service-price-from" data-i18n="svc_from">dan</span>
-            <span class="service-price-value">$200</span>
-          </span>
-        </button>
+                <button type="button" class="service-card" data-type="website" data-price="700" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-badge" data-i18n="svc_popular">Mashhur</span>
+                  <span class="service-icon bg-[#a855f7]/15 border-[#a855f7]/25">
+                    <i data-lucide="globe" class="w-7 h-7 text-[#c084fc]"></i>
+                  </span>
+                  <span class="service-name" data-i18n="svc_website_title">Veb-sayt</span>
+                  <span class="service-desc" data-i18n="svc_website_desc">Korporativ sayt, katalog yoki portal. Admin panel, SEO va ko'p tillilik bilan.</span>
+                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_website_time">2–4 hafta</span></span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
+                </button>
 
-        <!-- Mobile app -->
-        <button
-          type="button"
-          class="service-card"
-          data-service="app"
-          data-price="1500"
-          aria-pressed="false"
-        >
-          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-          <span class="service-icon bg-amber-500/15 border-amber-500/25">
-            <i data-lucide="smartphone" class="w-7 h-7 text-amber-400"></i>
-          </span>
-          <span class="service-name" data-i18n="svc_app_title">Mobil ilova</span>
-          <span class="service-desc" data-i18n="svc_app_desc"
-            >Android va iOS uchun ilova. Backend va admin panel bilan.</span
-          >
-          <span class="service-meta">
-            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-            <span data-i18n="svc_app_time">1–2 oy</span>
-          </span>
-          <span class="service-price">
-            <span class="service-price-from" data-i18n="svc_from">dan</span>
-            <span class="service-price-value">$1500</span>
-          </span>
-        </button>
+                <button type="button" class="service-card" data-type="shop" data-price="500" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-icon bg-emerald-500/15 border-emerald-500/25">
+                    <i data-lucide="shopping-bag" class="w-7 h-7 text-emerald-400"></i>
+                  </span>
+                  <span class="service-name" data-i18n="svc_shop_title">Internet-do'kon</span>
+                  <span class="service-desc" data-i18n="svc_shop_desc">Savat, buyurtma va Payme/Click to'lovi bilan onlayn do'kon.</span>
+                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_shop_time">3–5 hafta</span></span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$500</span></span>
+                </button>
+
+                <button type="button" class="service-card" data-type="bot" data-price="200" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-icon bg-blue-500/15 border-blue-500/25">
+                    <i data-lucide="send" class="w-7 h-7 text-blue-400"></i>
+                  </span>
+                  <span class="service-name" data-i18n="svc_bot_title">Telegram bot</span>
+                  <span class="service-desc" data-i18n="svc_bot_desc">Savdo, ariza qabul qilish, Mini App va avto-javob botlari.</span>
+                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_bot_time">5–10 kun</span></span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$200</span></span>
+                </button>
+
+                <button type="button" class="service-card" data-type="app" data-price="1500" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-icon bg-amber-500/15 border-amber-500/25">
+                    <i data-lucide="smartphone" class="w-7 h-7 text-amber-400"></i>
+                  </span>
+                  <span class="service-name" data-i18n="svc_app_title">Mobil ilova</span>
+                  <span class="service-desc" data-i18n="svc_app_desc">Android va iOS uchun ilova. Backend va admin panel bilan.</span>
+                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_app_time">1–2 oy</span></span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$1500</span></span>
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2 — options (rendered by JS for the chosen type) -->
+            <div class="wz-panel hidden" id="wz-panel-2"></div>
+
+            <!-- STEP 3 — add-ons + note (rendered by JS) -->
+            <div class="wz-panel hidden" id="wz-panel-3">
+              <div id="wz-addons"></div>
+              <label class="wz-note-label" for="wz-note">
+                <span data-i18n="wz_note">Izoh</span>
+                <span class="wz-note-opt" data-i18n="wz_optional">(ixtiyoriy)</span>
+              </label>
+              <textarea
+                id="wz-note"
+                class="wz-note"
+                rows="3"
+                maxlength="1000"
+                data-i18n-placeholder="wz_note_ph"
+                placeholder="Loyihangiz haqida qisqacha: soha, misollar, muddat..."
+              ></textarea>
+              <div class="wz-hint">
+                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                <span data-i18n="wz_submit_note"
+                  >Tugmani bosganingizda Telegram ochiladi — tanlovlaringiz xabar sifatida tayyor bo'ladi. Faqat "Yuborish"ni bosing.</span
+                >
+              </div>
+            </div>
+
+            <!-- Nav -->
+            <div class="wz-nav">
+              <button type="button" class="wz-back hidden" id="wz-back" onclick="wzPrev()">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span data-i18n="wz_back">Orqaga</span>
+              </button>
+              <span class="wz-nav-hint" id="wz-nav-hint" data-i18n="wz_pick_first">Avval xizmat turini tanlang</span>
+              <button type="button" class="btn-primary wz-next" id="wz-next" onclick="wzNext()" disabled>
+                <span data-i18n="wz_next">Keyingi</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+              <a
+                id="wz-send"
+                href="https://t.me/templates_uz_support"
+                target="_blank" rel="noopener noreferrer"
+                class="btn-primary wz-next hidden"
+              >
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span data-i18n="wz_send">Telegram orqali yuborish</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: live receipt -->
+        <aside class="lg:col-span-4 lg:sticky lg:top-24">
+          <div class="wz-card wz-receipt">
+            <div class="wz-receipt-head">
+              <span class="wz-receipt-title">
+                <i data-lucide="receipt" class="w-4 h-4 text-[var(--accent-hover)]"></i>
+                <span data-i18n="wz_receipt">Hisob-kitob</span>
+              </span>
+              <button type="button" class="wz-reset" onclick="wzReset()">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span data-i18n="wz_reset">Boshidan</span>
+              </button>
+            </div>
+            <ul class="wz-lines" id="wz-lines"></ul>
+            <p class="wz-empty" id="wz-empty" data-i18n="wz_empty">
+              Hali hech narsa tanlanmadi. 1-qadamdan boshlang.
+            </p>
+            <div class="wz-total">
+              <span data-i18n="wz_total">Jami</span>
+              <strong id="wz-total">$0</strong>
+            </div>
+            <p class="wz-fine" data-i18n="services_note">
+              Narxlar boshlang'ich — yakuniy summa loyiha hajmiga qarab kelishiladi.
+            </p>
+            <div class="wz-trust">
+              <span><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i><span data-i18n="wz_trust_1">Yashirin to'lovlar yo'q</span></span>
+              <span><i data-lucide="headphones" class="w-4 h-4 text-sky-400"></i><span data-i18n="wz_trust_2">24/7 aloqa</span></span>
+              <span><i data-lucide="lock" class="w-4 h-4 text-amber-400"></i><span data-i18n="wz_trust_3">Ma'lumotlar maxfiy</span></span>
+            </div>
+          </div>
+        </aside>
       </div>
-
-      <p class="text-center text-xs text-text-muted mt-6" data-i18n="services_note">
-        Narxlar boshlang'ich — yakuniy summa loyiha hajmiga qarab kelishiladi.
-      </p>
     </section>
 
-    <!-- Order bar: slides up once at least one service is selected -->
-    <div id="order-bar" aria-live="polite">
-      <div class="order-bar-inner">
-        <div class="order-bar-info">
-          <span class="order-bar-count">
-            <span id="order-count">0</span>
-            <span data-i18n="order_selected">ta xizmat tanlandi</span>
-          </span>
-          <span class="order-bar-total">
-            <span data-i18n="order_total">Jami:</span>
-            <strong id="order-total">$0</strong>
-          </span>
+    <!-- Mobile bottom bar (< lg): live total + step navigation -->
+    <div id="wz-bar" aria-live="polite">
+      <div class="wz-bar-inner">
+        <div class="wz-bar-info">
+          <span class="wz-bar-label"><span data-i18n="wz_total">Jami</span> · <span data-i18n="wz_step">Qadam</span> <span id="wz-bar-step">1</span>/3</span>
+          <strong id="wz-bar-total">$0</strong>
         </div>
-        <div class="order-bar-actions">
-          <button type="button" class="order-clear" onclick="clearServices()">
-            <i data-lucide="x" class="w-4 h-4"></i>
-            <span data-i18n="order_clear">Tozalash</span>
+        <div class="wz-bar-actions">
+          <button type="button" class="wz-back hidden" id="wz-bar-back" onclick="wzPrev()" aria-label="Orqaga">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
           </button>
-          <a
-            id="order-link"
-            href="https://t.me/templates_uz_support"
-            target="_blank" rel="noopener noreferrer"
-            class="btn-primary py-3 px-6 rounded-xl text-sm"
-          >
+          <button type="button" class="btn-primary wz-next" id="wz-bar-next" onclick="wzNext()" disabled>
+            <span data-i18n="wz_next">Keyingi</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+          <a id="wz-bar-send" href="https://t.me/templates_uz_support" target="_blank" rel="noopener noreferrer" class="btn-primary wz-next hidden">
             <i data-lucide="send" class="w-4 h-4"></i>
-            <span data-i18n="order_btn">Buyurtma berish</span>
+            <span data-i18n="wz_send_short">Yuborish</span>
           </a>
         </div>
       </div>
@@ -1304,6 +1355,6 @@
     </footer>
 
     <!-- Scripts (at end of body for performance) -->
-    <script src="./assets/script.js?v=ed356f6"></script>
+    <script src="./assets/script.js?v=711325d9"></script>
   </body>
 </html>
