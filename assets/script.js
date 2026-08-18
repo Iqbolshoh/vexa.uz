@@ -86,7 +86,8 @@ const translations = {
     wz_trust_1: "Yashirin to'lovlar yo'q",
     wz_trust_2: "24/7 aloqa",
     wz_trust_3: "Ma'lumotlar maxfiy",
-    wz_msg_intro: "Assalomu alaykum! Vexa.uz orqali buyurtma bermoqchiman.",
+    wz_msg_hi: "Assalomu alaykum!",
+    wz_msg_intro: "Vexa.uz sayti orqali buyurtma bermoqchiman:",
     nav_services: "Xizmatlar",
     btn_services: "Xizmatlar va narxlar",
     services_label: "Xizmatlar va narxlar",
@@ -183,7 +184,8 @@ const translations = {
     wz_trust_1: "Без скрытых платежей",
     wz_trust_2: "Связь 24/7",
     wz_trust_3: "Данные конфиденциальны",
-    wz_msg_intro: "Здравствуйте! Хочу оформить заказ через Vexa.uz.",
+    wz_msg_hi: "Здравствуйте!",
+    wz_msg_intro: "Хочу оформить заказ через сайт Vexa.uz:",
     nav_services: "Услуги",
     btn_services: "Услуги и цены",
     services_label: "Услуги и цены",
@@ -280,7 +282,8 @@ const translations = {
     wz_trust_1: "No hidden fees",
     wz_trust_2: "24/7 contact",
     wz_trust_3: "Your data stays private",
-    wz_msg_intro: "Hello! I'd like to place an order via Vexa.uz.",
+    wz_msg_hi: "Hello!",
+    wz_msg_intro: "I'd like to place an order via Vexa.uz:",
     nav_services: "Services",
     btn_services: "Services & pricing",
     services_label: "Services & pricing",
@@ -377,7 +380,8 @@ const translations = {
     wz_trust_1: "Пардохтҳои пинҳонӣ нест",
     wz_trust_2: "Робита 24/7",
     wz_trust_3: "Маълумот махфӣ аст",
-    wz_msg_intro: "Салом! Мехоҳам тавассути Vexa.uz фармоиш диҳам.",
+    wz_msg_hi: "Салом!",
+    wz_msg_intro: "Мехоҳам тавассути сайти Vexa.uz фармоиш диҳам:",
     nav_services: "Хизматҳо",
     btn_services: "Хизматҳо ва нархҳо",
     services_label: "Хизматҳо ва нархҳо",
@@ -544,17 +548,38 @@ function wzToggle(id) { wz.sel[id] = !wz.sel[id]; wzRender(); }
 function wzLines() { return WIZARD_SERVICES.filter((s) => wz.sel[s.id]).map((s) => ({ name: tr(s.title), price: s.price })); }
 function wzTotal() { return wzBasePrice() + wzLines().reduce((a, l) => a + l.price, 0); }
 
+const WZ_TYPE_EMOJI = { sales: "🛒", rent: "🔑", crm: "📊", restaurant: "🍽️", organization: "🏢" };
+const WZ_RULE = "━━━━━━━━━━━━━━━━━━━";
+
+/* Plain text (t.me ?text= does not render markdown), so structure comes
+   from spacing, emoji and a rule line. */
 function wzMessage() {
   const tt = t();
-  const out = [tt.wz_msg_intro, "", "🧩 " + tt.wz_msg_system + ": " + wzTypeName() + " — " + money(wzBasePrice())];
   const lines = wzLines();
-  if (lines.length) {
-    out.push("", "➕ " + tt.wz_step2_title + ":");
-    lines.forEach((l) => out.push("  • " + l.name + " (" + plus(l.price) + ")"));
-  }
   const note = ($("wz-note")?.value || "").trim();
-  if (note) out.push("", "💬 " + tt.wz_note + ": " + note);
-  out.push("", "💰 " + tt.wz_total + ": " + money(wzTotal()));
+  const out = [];
+  out.push("👋 " + tt.wz_msg_hi);
+  out.push(tt.wz_msg_intro);
+  out.push("");
+  out.push(WZ_RULE);
+  out.push((WZ_TYPE_EMOJI[wz.type] || "🧩") + " " + tt.wz_msg_system.toUpperCase());
+  out.push("     " + wzTypeName() + " — " + money(wzBasePrice()));
+  out.push("");
+  out.push("➕ " + tt.wz_step2_pick.toUpperCase());
+  if (lines.length) {
+    lines.forEach((l) => out.push("     ✅ " + l.name + " — " + plus(l.price)));
+  } else {
+    out.push("     — " + tt.wz_none.toLowerCase());
+  }
+  if (note) {
+    out.push("");
+    out.push("💬 " + tt.wz_note.toUpperCase());
+    out.push("     " + note.replace(/\n+/g, "\n     "));
+  }
+  out.push(WZ_RULE);
+  out.push("💰 " + tt.wz_total.toUpperCase() + ": " + money(wzTotal()));
+  out.push("");
+  out.push("🌐 vexa.uz");
   return out.join("\n");
 }
 
