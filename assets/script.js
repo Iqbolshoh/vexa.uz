@@ -47,6 +47,36 @@ const translations = {
     stat_regions: "viloyatda mavjud",
     stat_uptime: "server barqarorligi",
     stat_support: "texnik yordam",
+    // Services
+    nav_services: "Xizmatlar",
+    btn_services: "Xizmatlar va narxlar",
+    services_label: "Xizmatlar va narxlar",
+    services_title: "Sizga nima kerak?",
+    services_desc: "Kerakli xizmatlarni belgilang — narx darhol hisoblanadi. Keyin bir bosishda Telegram orqali buyurtma bering.",
+    services_note: "Narxlar boshlang'ich — yakuniy summa loyiha hajmiga qarab kelishiladi.",
+    svc_from: "dan",
+    svc_popular: "Mashhur",
+    svc_landing_title: "Landing page",
+    svc_landing_desc: "Bir sahifali sotuvchi sayt. Reklama va ariza yig'ish uchun ideal.",
+    svc_landing_time: "3–5 kun",
+    svc_website_title: "Veb-sayt",
+    svc_website_desc: "Korporativ sayt, katalog yoki portal. Admin panel, SEO va ko'p tillilik bilan.",
+    svc_website_time: "2–4 hafta",
+    svc_shop_title: "Internet-do'kon",
+    svc_shop_desc: "Savat, buyurtma va Payme/Click to'lovi bilan onlayn do'kon.",
+    svc_shop_time: "3–5 hafta",
+    svc_bot_title: "Telegram bot",
+    svc_bot_desc: "Savdo, ariza qabul qilish, Mini App va avto-javob botlari.",
+    svc_bot_time: "5–10 kun",
+    svc_app_title: "Mobil ilova",
+    svc_app_desc: "Android va iOS uchun ilova. Backend va admin panel bilan.",
+    svc_app_time: "1–2 oy",
+    order_selected: "ta xizmat tanlandi",
+    order_total: "Jami:",
+    order_clear: "Tozalash",
+    order_btn: "Buyurtma berish",
+    order_msg_intro: "Assalomu alaykum! Vexa.uz orqali buyurtma bermoqchiman:",
+    order_msg_total: "Jami",
     footer_products: "Mahsulotlar",
     footer_contact: "Bog'lanish",
     footer_desc: "O'zbekiston bo'ylab bizneslarni raqamlashtirish va avtomatlashtirish bo'yicha ishonchli texnologik hamkor.",
@@ -97,6 +127,36 @@ const translations = {
     stat_regions: "регионов охвата",
     stat_uptime: "стабильность серверов",
     stat_support: "техническая поддержка",
+    // Services
+    nav_services: "Услуги",
+    btn_services: "Услуги и цены",
+    services_label: "Услуги и цены",
+    services_title: "Что вам нужно?",
+    services_desc: "Отметьте нужные услуги — цена рассчитается сразу. Затем оформите заказ в Telegram одним нажатием.",
+    services_note: "Цены стартовые — итоговая сумма согласовывается по объёму проекта.",
+    svc_from: "от",
+    svc_popular: "Популярно",
+    svc_landing_title: "Лендинг",
+    svc_landing_desc: "Одностраничный продающий сайт. Идеален для рекламы и сбора заявок.",
+    svc_landing_time: "3–5 дней",
+    svc_website_title: "Веб-сайт",
+    svc_website_desc: "Корпоративный сайт, каталог или портал. С админ-панелью, SEO и мультиязычностью.",
+    svc_website_time: "2–4 недели",
+    svc_shop_title: "Интернет-магазин",
+    svc_shop_desc: "Онлайн-магазин с корзиной, заказами и оплатой Payme/Click.",
+    svc_shop_time: "3–5 недель",
+    svc_bot_title: "Telegram-бот",
+    svc_bot_desc: "Боты для продаж, приёма заявок, Mini App и автоответов.",
+    svc_bot_time: "5–10 дней",
+    svc_app_title: "Мобильное приложение",
+    svc_app_desc: "Приложение для Android и iOS. С бэкендом и админ-панелью.",
+    svc_app_time: "1–2 месяца",
+    order_selected: "услуг(и) выбрано",
+    order_total: "Итого:",
+    order_clear: "Очистить",
+    order_btn: "Заказать",
+    order_msg_intro: "Здравствуйте! Хочу оформить заказ через Vexa.uz:",
+    order_msg_total: "Итого",
     footer_products: "Продукты",
     footer_contact: "Связаться",
     footer_desc: "Надёжный технологический партнёр по цифровизации и автоматизации бизнеса по всему Узбекистану.",
@@ -147,6 +207,36 @@ const translations = {
     stat_regions: "regions covered",
     stat_uptime: "server stability",
     stat_support: "technical support",
+    // Services
+    nav_services: "Services",
+    btn_services: "Services & pricing",
+    services_label: "Services & pricing",
+    services_title: "What do you need?",
+    services_desc: "Tick the services you need — the price is calculated instantly. Then order via Telegram in one tap.",
+    services_note: "Starting prices — the final amount is agreed based on project scope.",
+    svc_from: "from",
+    svc_popular: "Popular",
+    svc_landing_title: "Landing page",
+    svc_landing_desc: "One-page sales site. Ideal for ads and lead collection.",
+    svc_landing_time: "3–5 days",
+    svc_website_title: "Website",
+    svc_website_desc: "Corporate site, catalog or portal. With admin panel, SEO and multilingual support.",
+    svc_website_time: "2–4 weeks",
+    svc_shop_title: "Online store",
+    svc_shop_desc: "E-commerce with cart, orders and Payme/Click payments.",
+    svc_shop_time: "3–5 weeks",
+    svc_bot_title: "Telegram bot",
+    svc_bot_desc: "Sales, lead intake, Mini App and auto-reply bots.",
+    svc_bot_time: "5–10 days",
+    svc_app_title: "Mobile app",
+    svc_app_desc: "Android and iOS app. With backend and admin panel.",
+    svc_app_time: "1–2 months",
+    order_selected: "service(s) selected",
+    order_total: "Total:",
+    order_clear: "Clear",
+    order_btn: "Place order",
+    order_msg_intro: "Hello! I'd like to place an order via Vexa.uz:",
+    order_msg_total: "Total",
     footer_products: "Products",
     footer_contact: "Contact",
     footer_desc: "A trusted technology partner for digitizing and automating businesses across Uzbekistan.",
@@ -197,6 +287,36 @@ const translations = {
     stat_regions: "вилоят дар дастрас",
     stat_uptime: "устувории сервер",
     stat_support: "кӯмаки техникӣ",
+    // Services
+    nav_services: "Хизматҳо",
+    btn_services: "Хизматҳо ва нархҳо",
+    services_label: "Хизматҳо ва нархҳо",
+    services_title: "Ба шумо чӣ лозим аст?",
+    services_desc: "Хизматҳои лозимиро қайд кунед — нарх фавран ҳисоб мешавад. Сипас бо як пахш тавассути Telegram фармоиш диҳед.",
+    services_note: "Нархҳо ибтидоӣ — маблағи ниҳоӣ вобаста ба ҳаҷми лоиҳа мувофиқа карда мешавад.",
+    svc_from: "аз",
+    svc_popular: "Машҳур",
+    svc_landing_title: "Лендинг",
+    svc_landing_desc: "Сайти яксаҳифагии фурӯш. Барои реклама ва ҷамъоварии дархостҳо беҳтарин.",
+    svc_landing_time: "3–5 рӯз",
+    svc_website_title: "Веб-сайт",
+    svc_website_desc: "Сайти корпоративӣ, каталог ё портал. Бо панели идоракунӣ, SEO ва бисёрзабонӣ.",
+    svc_website_time: "2–4 ҳафта",
+    svc_shop_title: "Мағозаи онлайн",
+    svc_shop_desc: "Мағозаи онлайн бо сабад, фармоишҳо ва пардохти Payme/Click.",
+    svc_shop_time: "3–5 ҳафта",
+    svc_bot_title: "Telegram-бот",
+    svc_bot_desc: "Ботҳо барои фурӯш, қабули дархостҳо, Mini App ва ҷавоби худкор.",
+    svc_bot_time: "5–10 рӯз",
+    svc_app_title: "Барномаи мобилӣ",
+    svc_app_desc: "Барнома барои Android ва iOS. Бо бэкенд ва панели идоракунӣ.",
+    svc_app_time: "1–2 моҳ",
+    order_selected: "хизмат интихоб шуд",
+    order_total: "Ҳамагӣ:",
+    order_clear: "Тоза кардан",
+    order_btn: "Фармоиш додан",
+    order_msg_intro: "Салом! Мехоҳам тавассути Vexa.uz фармоиш диҳам:",
+    order_msg_total: "Ҳамагӣ",
     footer_products: "Маҳсулотҳо",
     footer_contact: "Тамос",
     footer_desc: "Шарики технологии боэтимод барои рақамикунонӣ ва автоматикунонии бизнес дар саросари Ӯзбекистон.",
@@ -228,6 +348,7 @@ function setLang(lang) {
   closeLangDropdown();
 
   document.documentElement.lang = lang;
+  if (typeof updateOrderBar === "function") updateOrderBar();
 }
 
 /* ---------- Lang Dropdown ---------- */
@@ -267,6 +388,56 @@ document.addEventListener("keydown", (e) => {
     closeMobileMenu();
     closeLangDropdown();
   }
+});
+
+
+/* ---------- Services: select → total → Telegram order ---------- */
+const ORDER_TG = "https://t.me/templates_uz_support";
+const serviceCards = Array.from(document.querySelectorAll(".service-card"));
+
+function selectedServices() {
+  return serviceCards.filter((c) => c.classList.contains("selected"));
+}
+
+function updateOrderBar() {
+  const picked = selectedServices();
+  const total = picked.reduce((sum, c) => sum + Number(c.dataset.price || 0), 0);
+  const bar = document.getElementById("order-bar");
+  if (!bar) return;
+
+  document.getElementById("order-count").textContent = picked.length;
+  document.getElementById("order-total").textContent = "$" + total;
+
+  const t = translations[currentLang];
+  const lines = picked.map((c) => {
+    const name = c.querySelector(".service-name").textContent.trim();
+    return "• " + name + " — $" + c.dataset.price;
+  });
+  const msg =
+    t.order_msg_intro + "\n" + lines.join("\n") + "\n" + t.order_msg_total + ": $" + total;
+  document.getElementById("order-link").href =
+    ORDER_TG + "?text=" + encodeURIComponent(msg);
+
+  bar.classList.toggle("visible", picked.length > 0);
+  document.body.classList.toggle("has-order-bar", picked.length > 0);
+}
+
+function toggleService(card) {
+  const on = card.classList.toggle("selected");
+  card.setAttribute("aria-pressed", on ? "true" : "false");
+  updateOrderBar();
+}
+
+function clearServices() {
+  serviceCards.forEach((c) => {
+    c.classList.remove("selected");
+    c.setAttribute("aria-pressed", "false");
+  });
+  updateOrderBar();
+}
+
+serviceCards.forEach((card) => {
+  card.addEventListener("click", () => toggleService(card));
 });
 
 /* ---------- Init ---------- */

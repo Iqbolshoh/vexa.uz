@@ -141,6 +141,17 @@
             "url": "https://vexa.uz/",
             "logo": "https://vexa.uz/images/logo.png",
             "sameAs": ["https://t.me/templates_uz_support"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Xizmatlar va narxlar",
+              "itemListElement": [
+                { "@type": "Offer", "priceCurrency": "USD", "price": "100", "itemOffered": { "@type": "Service", "name": "Landing page" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Veb-sayt" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "500", "itemOffered": { "@type": "Service", "name": "Internet-do'kon" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "200", "itemOffered": { "@type": "Service", "name": "Telegram bot" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "1500", "itemOffered": { "@type": "Service", "name": "Mobil ilova" } }
+              ]
+            },
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "customer support",
@@ -285,6 +296,17 @@
         <!-- Nav links -->
         <nav class="flex flex-col gap-1 mb-6">
           <a
+            href="#services"
+            onclick="closeMobileMenu()"
+            class="mobile-nav-link"
+          >
+            <i
+              data-lucide="badge-dollar-sign"
+              class="w-4 h-4 text-[var(--accent-hover)]"
+            ></i>
+            <span data-i18n="nav_services">Xizmatlar</span>
+          </a>
+          <a
             href="#products"
             onclick="closeMobileMenu()"
             class="mobile-nav-link"
@@ -373,6 +395,12 @@
 
       <!-- Desktop nav links -->
       <div class="hidden md:flex items-center gap-8">
+        <a
+          href="#services"
+          data-i18n="nav_services"
+          class="text-sm font-semibold text-text-secondary hover:text-white transition-colors"
+          >Xizmatlar</a
+        >
         <a
           href="#products"
           data-i18n="nav_products"
@@ -511,19 +539,18 @@
           class="flex flex-col sm:flex-row items-center justify-center gap-5"
         >
           <a
-            href="#products"
+            href="#services"
             class="btn-primary py-4 px-10 rounded-2xl text-base w-full sm:w-auto shadow-xl"
+          >
+            <i data-lucide="badge-dollar-sign" class="w-5 h-5"></i>
+            <span data-i18n="btn_services">Xizmatlar va narxlar</span>
+          </a>
+          <a
+            href="#products"
+            class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
           >
             <i data-lucide="layers" class="w-5 h-5"></i>
             <span data-i18n="btn_products">Mahsulotlarni ko'rish</span>
-          </a>
-          <a
-            href="https://t.me/templates_uz_support"
-            target="_blank" rel="noopener noreferrer"
-            class="btn-secondary py-4 px-8 rounded-2xl text-base w-full sm:w-auto font-semibold"
-          >
-            <i data-lucide="play-circle" class="w-5 h-5"></i>
-            <span data-i18n="btn_demo">Demo so'rash</span>
           </a>
         </div>
 
@@ -546,6 +573,209 @@
         </div>
       </div>
     </main>
+
+    <!-- ==================== SERVICES (Xizmatlar) ==================== -->
+    <!-- Prices live only in data-price (USD). Cards toggle on click; the
+         total and the Telegram order message are computed from the
+         selected cards, so changing a price here updates everything. -->
+    <section
+      id="services"
+      class="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 py-16 sm:py-24"
+    >
+      <div class="text-center mb-12 sm:mb-14">
+        <h2
+          class="text-xs font-bold tracking-[0.25em] uppercase text-[var(--accent-hover)] mb-4"
+          data-i18n="services_label"
+        >
+          Xizmatlar va narxlar
+        </h2>
+        <p
+          class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight"
+          data-i18n="services_title"
+        >
+          Sizga nima kerak?
+        </p>
+        <p
+          class="text-text-secondary mt-4 max-w-xl mx-auto"
+          data-i18n="services_desc"
+        >
+          Kerakli xizmatlarni belgilang — narx darhol hisoblanadi. Keyin bir
+          bosishda Telegram orqali buyurtma bering.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5"
+        role="group"
+        aria-label="Xizmatlar"
+      >
+        <!-- Landing page -->
+        <button
+          type="button"
+          class="service-card"
+          data-service="landing"
+          data-price="100"
+          aria-pressed="false"
+        >
+          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+          <span class="service-icon bg-sky-500/15 border-sky-500/25">
+            <i data-lucide="layout-template" class="w-7 h-7 text-sky-400"></i>
+          </span>
+          <span class="service-name" data-i18n="svc_landing_title">Landing page</span>
+          <span class="service-desc" data-i18n="svc_landing_desc"
+            >Bir sahifali sotuvchi sayt. Reklama va ariza yig'ish uchun ideal.</span
+          >
+          <span class="service-meta">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span data-i18n="svc_landing_time">3–5 kun</span>
+          </span>
+          <span class="service-price">
+            <span class="service-price-from" data-i18n="svc_from">dan</span>
+            <span class="service-price-value">$100</span>
+          </span>
+        </button>
+
+        <!-- Website -->
+        <button
+          type="button"
+          class="service-card"
+          data-service="website"
+          data-price="700"
+          aria-pressed="false"
+        >
+          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+          <span class="service-badge" data-i18n="svc_popular">Mashhur</span>
+          <span class="service-icon bg-[#a855f7]/15 border-[#a855f7]/25">
+            <i data-lucide="globe" class="w-7 h-7 text-[#c084fc]"></i>
+          </span>
+          <span class="service-name" data-i18n="svc_website_title">Veb-sayt</span>
+          <span class="service-desc" data-i18n="svc_website_desc"
+            >Korporativ sayt, katalog yoki portal. Admin panel, SEO va ko'p tillilik bilan.</span
+          >
+          <span class="service-meta">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span data-i18n="svc_website_time">2–4 hafta</span>
+          </span>
+          <span class="service-price">
+            <span class="service-price-from" data-i18n="svc_from">dan</span>
+            <span class="service-price-value">$700</span>
+          </span>
+        </button>
+
+        <!-- Online shop -->
+        <button
+          type="button"
+          class="service-card"
+          data-service="shop"
+          data-price="500"
+          aria-pressed="false"
+        >
+          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+          <span class="service-icon bg-emerald-500/15 border-emerald-500/25">
+            <i data-lucide="shopping-bag" class="w-7 h-7 text-emerald-400"></i>
+          </span>
+          <span class="service-name" data-i18n="svc_shop_title">Internet-do'kon</span>
+          <span class="service-desc" data-i18n="svc_shop_desc"
+            >Savat, buyurtma va Payme/Click to'lovi bilan onlayn do'kon.</span
+          >
+          <span class="service-meta">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span data-i18n="svc_shop_time">3–5 hafta</span>
+          </span>
+          <span class="service-price">
+            <span class="service-price-from" data-i18n="svc_from">dan</span>
+            <span class="service-price-value">$500</span>
+          </span>
+        </button>
+
+        <!-- Telegram bot -->
+        <button
+          type="button"
+          class="service-card"
+          data-service="bot"
+          data-price="200"
+          aria-pressed="false"
+        >
+          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+          <span class="service-icon bg-blue-500/15 border-blue-500/25">
+            <i data-lucide="send" class="w-7 h-7 text-blue-400"></i>
+          </span>
+          <span class="service-name" data-i18n="svc_bot_title">Telegram bot</span>
+          <span class="service-desc" data-i18n="svc_bot_desc"
+            >Savdo, ariza qabul qilish, Mini App va avto-javob botlari.</span
+          >
+          <span class="service-meta">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span data-i18n="svc_bot_time">5–10 kun</span>
+          </span>
+          <span class="service-price">
+            <span class="service-price-from" data-i18n="svc_from">dan</span>
+            <span class="service-price-value">$200</span>
+          </span>
+        </button>
+
+        <!-- Mobile app -->
+        <button
+          type="button"
+          class="service-card"
+          data-service="app"
+          data-price="1500"
+          aria-pressed="false"
+        >
+          <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+          <span class="service-icon bg-amber-500/15 border-amber-500/25">
+            <i data-lucide="smartphone" class="w-7 h-7 text-amber-400"></i>
+          </span>
+          <span class="service-name" data-i18n="svc_app_title">Mobil ilova</span>
+          <span class="service-desc" data-i18n="svc_app_desc"
+            >Android va iOS uchun ilova. Backend va admin panel bilan.</span
+          >
+          <span class="service-meta">
+            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+            <span data-i18n="svc_app_time">1–2 oy</span>
+          </span>
+          <span class="service-price">
+            <span class="service-price-from" data-i18n="svc_from">dan</span>
+            <span class="service-price-value">$1500</span>
+          </span>
+        </button>
+      </div>
+
+      <p class="text-center text-xs text-text-muted mt-6" data-i18n="services_note">
+        Narxlar boshlang'ich — yakuniy summa loyiha hajmiga qarab kelishiladi.
+      </p>
+    </section>
+
+    <!-- Order bar: slides up once at least one service is selected -->
+    <div id="order-bar" aria-live="polite">
+      <div class="order-bar-inner">
+        <div class="order-bar-info">
+          <span class="order-bar-count">
+            <span id="order-count">0</span>
+            <span data-i18n="order_selected">ta xizmat tanlandi</span>
+          </span>
+          <span class="order-bar-total">
+            <span data-i18n="order_total">Jami:</span>
+            <strong id="order-total">$0</strong>
+          </span>
+        </div>
+        <div class="order-bar-actions">
+          <button type="button" class="order-clear" onclick="clearServices()">
+            <i data-lucide="x" class="w-4 h-4"></i>
+            <span data-i18n="order_clear">Tozalash</span>
+          </button>
+          <a
+            id="order-link"
+            href="https://t.me/templates_uz_support"
+            target="_blank" rel="noopener noreferrer"
+            class="btn-primary py-3 px-6 rounded-xl text-sm"
+          >
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span data-i18n="order_btn">Buyurtma berish</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- ==================== PRODUCTS ==================== -->
     <section
