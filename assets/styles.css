@@ -843,3 +843,34 @@ html.light .wz-bar-inner { background: rgba(255,255,255,0.96); box-shadow: 0 24p
 .wz-bar-actions .wz-next { margin-left: 0; padding: 0.8rem 1.15rem; font-size: 0.85rem; }
 body.has-wz-bar { padding-bottom: 5.5rem; }
 @media (min-width: 1024px) { body.has-wz-bar { padding-bottom: 0; } }
+
+/* Step 3 review */
+.wz-review { display: flex; flex-direction: column; gap: 0.5rem; }
+.wz-review-item {
+  display: grid; grid-template-columns: 6.5rem 1fr auto; align-items: center; gap: 0.75rem;
+  padding: 0.8rem 1rem; border-radius: 1rem;
+  background: var(--bg-overlay); border: 1px solid var(--border-subtle);
+  font-size: 0.9rem; color: var(--text-primary);
+}
+html.light .wz-review-item { background: #f7f8ff; }
+.wz-review-k { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.wz-review-v { font-weight: 700; min-width: 0; }
+.wz-review-p { font-weight: 900; white-space: nowrap; color: var(--accent-hover); }
+.wz-review-item.is-base { border-color: var(--accent-border); background: var(--accent-soft); }
+.wz-review-item.is-base .wz-review-p { color: var(--text-primary); }
+.wz-review-item.is-muted .wz-review-v { color: var(--text-muted); font-weight: 600; }
+.wz-review-edit {
+  font-size: 0.75rem; font-weight: 800; color: var(--accent-hover); background: none; border: 1px solid var(--accent-border);
+  border-radius: 0.6rem; padding: 0.35rem 0.7rem; cursor: pointer;
+}
+.wz-review-item.is-total { background: transparent; border: 0; border-top: 1px solid var(--border-strong); border-radius: 0; margin-top: 0.25rem; padding-top: 1rem; }
+.wz-review-item.is-total .wz-review-v { font-size: 1rem; color: var(--text-secondary); }
+.wz-review-item.is-total .wz-review-p {
+  font-size: 1.6rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent-alt));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+@media (max-width: 480px) {
+  .wz-review-item { grid-template-columns: 1fr auto; }
+  .wz-review-k { display: none; }
+}

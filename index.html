@@ -122,7 +122,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles.css?v=711325d9" />
+    <link rel="stylesheet" href="./assets/styles.css?v=cd87c50d" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -145,11 +145,13 @@
               "@type": "OfferCatalog",
               "name": "Xizmatlar va narxlar",
               "itemListElement": [
-                { "@type": "Offer", "priceCurrency": "USD", "price": "100", "itemOffered": { "@type": "Service", "name": "Landing page" } },
-                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Veb-sayt" } },
-                { "@type": "Offer", "priceCurrency": "USD", "price": "500", "itemOffered": { "@type": "Service", "name": "Internet-do'kon" } },
-                { "@type": "Offer", "priceCurrency": "USD", "price": "200", "itemOffered": { "@type": "Service", "name": "Telegram bot" } },
-                { "@type": "Offer", "priceCurrency": "USD", "price": "1500", "itemOffered": { "@type": "Service", "name": "Mobil ilova" } }
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Sales Vexa — savdo tizimi" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Rent Vexa — ijara tizimi" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "CRM Vexa" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Restaurant Vexa" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Organization Vexa" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "150", "itemOffered": { "@type": "Service", "name": "Landing page" } },
+                { "@type": "Offer", "priceCurrency": "USD", "price": "200", "itemOffered": { "@type": "Service", "name": "Telegram bot" } }
               ]
             },
             "contactPoint": {
@@ -600,8 +602,8 @@
           class="text-text-secondary mt-4 max-w-xl mx-auto"
           data-i18n="services_desc"
         >
-          3 ta oddiy qadam: xizmatni tanlang, imkoniyatlarni belgilang va
-          Telegram orqali buyurtma yuboring. Narx jonli hisoblanadi.
+          3 ta oddiy qadam: Vexa tizimini tanlang, kerakli xizmatlarni qo'shing
+          va Telegram orqali buyurtma yuboring. Narx jonli hisoblanadi.
         </p>
       </div>
 
@@ -612,7 +614,7 @@
             <span class="wz-step-num"><span>1</span><i data-lucide="check" class="w-4 h-4"></i></span>
             <span class="wz-step-text">
               <span class="wz-step-label"><span data-i18n="wz_step">Qadam</span> 1</span>
-              <span class="wz-step-title" data-i18n="wz_step1_title">Xizmat turi</span>
+              <span class="wz-step-title" data-i18n="wz_step1_title">Vexa tizimi</span>
             </span>
           </button>
         </li>
@@ -621,7 +623,7 @@
             <span class="wz-step-num"><span>2</span><i data-lucide="check" class="w-4 h-4"></i></span>
             <span class="wz-step-text">
               <span class="wz-step-label"><span data-i18n="wz_step">Qadam</span> 2</span>
-              <span class="wz-step-title" data-i18n="wz_step2_title">Imkoniyatlar</span>
+              <span class="wz-step-title" data-i18n="wz_step2_title">Xizmatlar</span>
             </span>
           </button>
         </li>
@@ -647,10 +649,10 @@
                   <span id="wz-step-now">1</span> / 3
                 </span>
                 <h3 class="wz-heading" id="wz-heading" data-i18n="wz_step1_heading">
-                  Xizmat turini tanlang
+                  Vexa tizimini tanlang
                 </h3>
                 <p class="wz-sub" id="wz-sub" data-i18n="wz_step1_sub">
-                  Sizga kerakli xizmatni belgilang — keyingi qadam avtomatik ochiladi
+                  Biznesingizga mos tizimni belgilang — keyingi qadam avtomatik ochiladi
                 </p>
               </div>
               <button type="button" class="wz-chosen hidden" id="wz-chosen" onclick="wzGo(1)">
@@ -662,61 +664,52 @@
 
             <!-- STEP 1 — service type -->
             <div class="wz-panel" id="wz-panel-1">
-              <div class="wz-types" role="radiogroup" aria-label="Xizmat turi">
-                <button type="button" class="service-card" data-type="landing" data-price="100" role="radio" aria-checked="false">
-                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-                  <span class="service-icon bg-sky-500/15 border-sky-500/25">
-                    <i data-lucide="layout-template" class="w-7 h-7 text-sky-400"></i>
-                  </span>
-                  <span class="service-name" data-i18n="svc_landing_title">Landing page</span>
-                  <span class="service-desc" data-i18n="svc_landing_desc">Bir sahifali sotuvchi sayt. Reklama va ariza yig'ish uchun ideal.</span>
-                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_landing_time">3–5 kun</span></span>
-                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$100</span></span>
-                </button>
-
-                <button type="button" class="service-card" data-type="website" data-price="700" role="radio" aria-checked="false">
+              <div class="wz-types" role="radiogroup" aria-label="Vexa tizimi">
+                <button type="button" class="service-card" data-type="sales" data-price="700" role="radio" aria-checked="false">
                   <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
                   <span class="service-badge" data-i18n="svc_popular">Mashhur</span>
                   <span class="service-icon bg-[#a855f7]/15 border-[#a855f7]/25">
-                    <i data-lucide="globe" class="w-7 h-7 text-[#c084fc]"></i>
+                    <i data-lucide="store" class="w-7 h-7 text-[#c084fc]"></i>
                   </span>
-                  <span class="service-name" data-i18n="svc_website_title">Veb-sayt</span>
-                  <span class="service-desc" data-i18n="svc_website_desc">Korporativ sayt, katalog yoki portal. Admin panel, SEO va ko'p tillilik bilan.</span>
-                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_website_time">2–4 hafta</span></span>
+                  <span class="service-name">Sales Vexa</span>
+                  <span class="service-desc" data-i18n="wz_sales_desc">Savdo, ombor va bulutli kassa tizimi</span>
                   <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
                 </button>
-
-                <button type="button" class="service-card" data-type="shop" data-price="500" role="radio" aria-checked="false">
+                <button type="button" class="service-card" data-type="rent" data-price="700" role="radio" aria-checked="false">
                   <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
                   <span class="service-icon bg-emerald-500/15 border-emerald-500/25">
-                    <i data-lucide="shopping-bag" class="w-7 h-7 text-emerald-400"></i>
+                    <i data-lucide="calendar-clock" class="w-7 h-7 text-emerald-400"></i>
                   </span>
-                  <span class="service-name" data-i18n="svc_shop_title">Internet-do'kon</span>
-                  <span class="service-desc" data-i18n="svc_shop_desc">Savat, buyurtma va Payme/Click to'lovi bilan onlayn do'kon.</span>
-                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_shop_time">3–5 hafta</span></span>
-                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$500</span></span>
+                  <span class="service-name">Rent Vexa</span>
+                  <span class="service-desc" data-i18n="wz_rent_desc">Ijara biznesi: bronlash, shartnoma, to'lovlar</span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
                 </button>
-
-                <button type="button" class="service-card" data-type="bot" data-price="200" role="radio" aria-checked="false">
+                <button type="button" class="service-card" data-type="crm" data-price="700" role="radio" aria-checked="false">
                   <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
                   <span class="service-icon bg-blue-500/15 border-blue-500/25">
-                    <i data-lucide="send" class="w-7 h-7 text-blue-400"></i>
+                    <i data-lucide="pie-chart" class="w-7 h-7 text-blue-400"></i>
                   </span>
-                  <span class="service-name" data-i18n="svc_bot_title">Telegram bot</span>
-                  <span class="service-desc" data-i18n="svc_bot_desc">Savdo, ariza qabul qilish, Mini App va avto-javob botlari.</span>
-                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_bot_time">5–10 kun</span></span>
-                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$200</span></span>
+                  <span class="service-name">CRM Vexa</span>
+                  <span class="service-desc" data-i18n="wz_crm_desc">Mijozlar, savdo voronkasi va xodimlar KPI</span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
                 </button>
-
-                <button type="button" class="service-card" data-type="app" data-price="1500" role="radio" aria-checked="false">
+                <button type="button" class="service-card" data-type="restaurant" data-price="700" role="radio" aria-checked="false">
                   <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
                   <span class="service-icon bg-amber-500/15 border-amber-500/25">
-                    <i data-lucide="smartphone" class="w-7 h-7 text-amber-400"></i>
+                    <i data-lucide="chef-hat" class="w-7 h-7 text-amber-400"></i>
                   </span>
-                  <span class="service-name" data-i18n="svc_app_title">Mobil ilova</span>
-                  <span class="service-desc" data-i18n="svc_app_desc">Android va iOS uchun ilova. Backend va admin panel bilan.</span>
-                  <span class="service-meta"><i data-lucide="clock" class="w-3.5 h-3.5"></i><span data-i18n="svc_app_time">1–2 oy</span></span>
-                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$1500</span></span>
+                  <span class="service-name">Restaurant Vexa</span>
+                  <span class="service-desc" data-i18n="wz_restaurant_desc">Restoran: stollar, menyu, oshxona buyurtmalari</span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
+                </button>
+                <button type="button" class="service-card" data-type="organization" data-price="700" role="radio" aria-checked="false">
+                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
+                  <span class="service-icon bg-cyan-500/15 border-cyan-500/25">
+                    <i data-lucide="network" class="w-7 h-7 text-cyan-400"></i>
+                  </span>
+                  <span class="service-name">Organization Vexa</span>
+                  <span class="service-desc" data-i18n="wz_organization_desc">Tashkilot: xodimlar, vazifalar, davomat, hujjatlar</span>
+                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
                 </button>
               </div>
             </div>
@@ -726,7 +719,7 @@
 
             <!-- STEP 3 — add-ons + note (rendered by JS) -->
             <div class="wz-panel hidden" id="wz-panel-3">
-              <div id="wz-addons"></div>
+              <div class="wz-review" id="wz-review"></div>
               <label class="wz-note-label" for="wz-note">
                 <span data-i18n="wz_note">Izoh</span>
                 <span class="wz-note-opt" data-i18n="wz_optional">(ixtiyoriy)</span>
@@ -753,7 +746,7 @@
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 <span data-i18n="wz_back">Orqaga</span>
               </button>
-              <span class="wz-nav-hint" id="wz-nav-hint" data-i18n="wz_pick_first">Avval xizmat turini tanlang</span>
+              <span class="wz-nav-hint" id="wz-nav-hint" data-i18n="wz_pick_first">Avval Vexa tizimini tanlang</span>
               <button type="button" class="btn-primary wz-next" id="wz-next" onclick="wzNext()" disabled>
                 <span data-i18n="wz_next">Keyingi</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -1355,6 +1348,6 @@
     </footer>
 
     <!-- Scripts (at end of body for performance) -->
-    <script src="./assets/script.js?v=711325d9"></script>
+    <script src="./assets/script.js?v=cd87c50d"></script>
   </body>
 </html>
