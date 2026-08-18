@@ -882,3 +882,27 @@ html.light .wz-review-item { background: #f7f8ff; }
 
 /* Anchor targets sit below the sticky header when navigated to */
 #products, #services, #features, #stats, #wz-stepper { scroll-margin-top: 5.5rem; }
+
+/* Choice rows (pick one of N, e.g. support duration) */
+.wz-row-choice { cursor: default; flex-wrap: wrap; }
+.wz-row-choice:hover { border-color: var(--border-strong); }
+.wz-row-choice.on:hover { border-color: var(--accent-hover); }
+.wz-row-kind { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-left: 0.15rem; }
+.wz-seg { display: inline-flex; gap: 0.35rem; flex-shrink: 0; margin-left: auto; }
+.wz-seg-btn {
+  display: flex; flex-direction: column; align-items: center; line-height: 1.1;
+  padding: 0.45rem 0.8rem; border-radius: 0.75rem;
+  border: 2px solid var(--border-strong); background: var(--bg-raised);
+  color: var(--text-secondary); cursor: pointer; transition: all 0.2s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.wz-seg-btn:hover { border-color: var(--accent-border); }
+.wz-seg-btn.on { border-color: var(--accent-hover); background: linear-gradient(135deg, var(--accent-hover), var(--accent-alt)); color: #fff; }
+.wz-seg-title { font-size: 0.78rem; font-weight: 800; white-space: nowrap; }
+.wz-seg-price { font-size: 0.68rem; font-weight: 800; color: var(--accent-hover); }
+.wz-seg-btn.on .wz-seg-price { color: rgba(255,255,255,0.85); }
+@media (max-width: 480px) {
+  .wz-row-choice .wz-row-body { flex-basis: calc(100% - 3.35rem); }
+  .wz-seg { width: 100%; margin-left: 0; margin-top: 0.25rem; }
+  .wz-seg-btn { flex: 1; flex-direction: row; justify-content: center; gap: 0.35rem; }
+}

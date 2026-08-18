@@ -69,6 +69,7 @@ const translations = {
     wz_none: "Tanlanmagan",
     wz_add: "Qo'shish",
     wz_step: "Qadam",
+    wz_choose_one: "bittasini tanlang",
     wz_choose_any: "ixtiyoriy",
     wz_recommended: "Tavsiya",
     wz_note: "Izoh",
@@ -167,6 +168,7 @@ const translations = {
     wz_none: "Не выбрано",
     wz_add: "Добавить",
     wz_step: "Шаг",
+    wz_choose_one: "выберите одно",
     wz_choose_any: "по желанию",
     wz_recommended: "Рекомендуем",
     wz_note: "Комментарий",
@@ -265,6 +267,7 @@ const translations = {
     wz_none: "None selected",
     wz_add: "Add",
     wz_step: "Step",
+    wz_choose_one: "choose one",
     wz_choose_any: "optional",
     wz_recommended: "Recommended",
     wz_note: "Note",
@@ -363,6 +366,7 @@ const translations = {
     wz_none: "Интихоб нашудааст",
     wz_add: "Илова кардан",
     wz_step: "Қадам",
+    wz_choose_one: "якеро интихоб кунед",
     wz_choose_any: "ихтиёрӣ",
     wz_recommended: "Тавсия",
     wz_note: "Шарҳ",
@@ -489,15 +493,20 @@ const WIZARD_SERVICES = [
   { id: "multilang", icon: "languages", price: 80,
     title: L("Ko'p tillilik", "Мультиязычность", "Multilingual", "Бисёрзабонӣ"),
     desc: L("UZ / RU / EN interfeys", "Интерфейс UZ / RU / EN", "UZ / RU / EN interface", "Интерфейси UZ / RU / EN") },
-  { id: "domain", icon: "globe-lock", price: 30,
+  { id: "domain", icon: "globe-lock", price: 90,
     title: L("Domen + hosting (1 yil)", "Домен + хостинг (1 год)", "Domain + hosting (1 year)", "Домен + ҳостинг (1 сол)"),
-    desc: L("Domen, SSL va serverga joylashtirish", "Домен, SSL и размещение на сервере", "Domain, SSL and server deployment", "Домен, SSL ва ҷойгиркунӣ дар сервер") },
+    desc: L("12 oy × $7.5 — domen, SSL va serverga joylashtirish", "12 мес × $7.5 — домен, SSL и размещение на сервере", "12 months × $7.5 — domain, SSL and server deployment", "12 моҳ × $7.5 — домен, SSL ва ҷойгиркунӣ дар сервер") },
   { id: "training", icon: "graduation-cap", price: 100,
     title: L("O'rnatish va o'qitish", "Внедрение и обучение", "Setup & training", "Ҷорӣ кардан ва омӯзиш"),
     desc: L("Ma'lumotlarni ko'chirish, xodimlarni o'qitish", "Перенос данных, обучение сотрудников", "Data migration, staff training", "Интиқоли маълумот, омӯзиши кормандон") },
-  { id: "support", icon: "life-buoy", price: 50,
-    title: L("3 oy texnik yordam", "3 месяца техподдержки", "3 months support", "3 моҳ дастгирии техникӣ"),
-    desc: L("Kichik o'zgartirishlar va xatolarni bepul tuzatish", "Мелкие правки и исправление ошибок бесплатно", "Minor edits and bug fixes included", "Тағйироти хурд ва ислоҳи хатоҳо ройгон") },
+  { id: "support", icon: "life-buoy",
+    title: L("Texnik yordam", "Техподдержка", "Technical support", "Дастгирии техникӣ"),
+    desc: L("Kichik o'zgartirishlar va xatolarni bepul tuzatish", "Мелкие правки и исправление ошибок бесплатно", "Minor edits and bug fixes included", "Тағйироти хурд ва ислоҳи хатоҳо ройгон"),
+    // pick one (tap the active option again to remove)
+    choices: [
+      { id: "1m", price: 30, title: L("1 oy", "1 месяц", "1 month", "1 моҳ") },
+      { id: "3m", price: 90, title: L("3 oy", "3 месяца", "3 months", "3 моҳ") },
+    ] },
 ];
 
 /* ---------- Order wizard: state & logic ---------- */
@@ -544,8 +553,21 @@ function wzReset() {
   wzRender();
 }
 function wzToggle(id) { wz.sel[id] = !wz.sel[id]; wzRender(); }
+function wzPick(id, choiceId) { wz.sel[id] = wz.sel[id] === choiceId ? false : choiceId; wzRender(); }
 
-function wzLines() { return WIZARD_SERVICES.filter((s) => wz.sel[s.id]).map((s) => ({ name: tr(s.title), price: s.price })); }
+function wzLines() {
+  const out = [];
+  WIZARD_SERVICES.forEach((s) => {
+    if (!wz.sel[s.id]) return;
+    if (s.choices) {
+      const c = s.choices.find((x) => x.id === wz.sel[s.id]);
+      if (c) out.push({ name: tr(s.title) + " — " + tr(c.title), price: c.price });
+    } else {
+      out.push({ name: tr(s.title), price: s.price });
+    }
+  });
+  return out;
+}
 function wzTotal() { return wzBasePrice() + wzLines().reduce((a, l) => a + l.price, 0); }
 
 const WZ_TYPE_EMOJI = { sales: "🛒", rent: "🔑", crm: "📊", restaurant: "🍽️", organization: "🏢" };
@@ -589,6 +611,16 @@ function wzRowHtml(c, on) {
   const tt = t();
   const rec = c.rec ? `<span class="wz-row-rec">${tt.wz_recommended}</span>` : "";
   const desc = c.desc ? `<p class="wz-row-desc">${tr(c.desc)}</p>` : "";
+  if (c.choices) {
+    const picked = wz.sel[c.id];
+    const seg = `<span class="wz-seg" role="radiogroup">` + c.choices.map((ch) =>
+      `<button type="button" class="wz-seg-btn${picked === ch.id ? " on" : ""}" role="radio" aria-checked="${picked === ch.id}" onclick="wzPick('${c.id}','${ch.id}')">
+        <span class="wz-seg-title">${tr(ch.title)}</span><span class="wz-seg-price">${plus(ch.price)}</span></button>`).join("") + `</span>`;
+    return `<div class="wz-row wz-row-choice${on ? " on" : ""}">
+    <span class="wz-row-icon">${iconHtml(c.icon)}</span>
+    <span class="wz-row-body"><span class="wz-row-title">${tr(c.title)}${rec}<span class="wz-row-kind">${tt.wz_choose_one}</span></span>${desc}</span>
+    ${seg}</div>`;
+  }
   return `<button type="button" class="wz-row${on ? " on" : ""}" role="switch" aria-checked="${on}" onclick="wzToggle('${c.id}')">
     <span class="wz-row-icon">${iconHtml(c.icon)}</span>
     <span class="wz-row-body"><span class="wz-row-title">${tr(c.title)}${rec}</span>${desc}<span class="wz-row-price">${plus(c.price)}</span></span>
