@@ -510,7 +510,7 @@ const WIZARD_SERVICES = [
 ];
 
 /* ---------- Order wizard: state & logic ---------- */
-const ORDER_TG = "https://t.me/templates_uz_support";
+const ORDER_TG = "https://t.me/vexa_help";
 const wz = { step: 1, maxStep: 1, type: null, sel: {} };
 const typeCards = Array.from(document.querySelectorAll("#wz-panel-1 .service-card"));
 
