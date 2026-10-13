@@ -122,7 +122,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./assets/styles.css?v=e0b9a1a0" />
+    <link rel="stylesheet" href="./assets/styles.css?v=1c9c1bbf" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -148,7 +148,6 @@
                 { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Sales Vexa — savdo tizimi" } },
                 { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Rent Vexa — ijara tizimi" } },
                 { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "CRM Vexa" } },
-                { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "Restaurant Vexa" } },
                 { "@type": "Offer", "priceCurrency": "USD", "price": "700", "itemOffered": { "@type": "Service", "name": "ERP Vexa" } },
                 { "@type": "Offer", "priceCurrency": "USD", "price": "150", "itemOffered": { "@type": "Service", "name": "Landing page" } },
                 { "@type": "Offer", "priceCurrency": "USD", "price": "200", "itemOffered": { "@type": "Service", "name": "Telegram bot" } }
@@ -212,18 +211,6 @@
               {
                 "@type": "ListItem",
                 "position": 4,
-                "item": {
-                  "@type": "SoftwareApplication",
-                  "name": "Restaurant Vexa",
-                  "url": "https://restaurant.vexa.uz",
-                  "applicationCategory": "BusinessApplication",
-                  "operatingSystem": "Web",
-                  "description": "Restoran va kafelar uchun: stollar bandligi, menyu va oshxona buyurtmalari."
-                }
-              },
-              {
-                "@type": "ListItem",
-                "position": 5,
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "ERP Vexa",
@@ -732,54 +719,9 @@
           </div>
         </div>
 
-        <!-- Restaurant Vexa — starts at column 2 so this trailing row of two
-             sits centred under the three above it. -->
-        <div
-          class="feature-card md:col-span-3 md:col-start-auto xl:col-span-2 xl:col-start-2 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
-        >
-          <div
-            class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            <i
-              data-lucide="utensils-crossed"
-              class="w-36 h-36 text-amber-500"
-            ></i>
-          </div>
-          <div
-            class="w-16 h-16 rounded-2xl flex items-center justify-center bg-amber-500/15 border border-amber-500/25 mb-7 relative z-10"
-          >
-            <i data-lucide="chef-hat" class="w-8 h-8 text-amber-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3 relative z-10">
-            Restaurant Vexa
-          </h3>
-          <p
-            class="text-text-secondary leading-relaxed font-medium mb-8 flex-grow relative z-10"
-            data-i18n="restaurant_desc"
-          >
-            Restoran va kafelar uchun: stollar bandligi, menyu va oshxona
-            buyurtmalari, ofitsiant hisoboti bir tizimda.
-          </p>
-          <div class="flex items-center gap-4 relative z-10">
-            <a
-              href="https://restaurant.vexa.uz"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-amber-400 font-bold hover:text-white transition-colors text-sm"
-            >
-              <span data-i18n="link_login">Tizimga kirish</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-            <span
-              class="text-xs text-text-muted bg-white/5 px-3 py-1 rounded-full"
-              data-i18n="restaurant_badge"
-              >Tez kunda</span
-            >
-          </div>
-        </div>
-
         <!-- ERP Vexa -->
         <div
-          class="feature-card md:col-span-3 md:col-start-2 xl:col-span-2 xl:col-start-auto p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
+          class="feature-card md:col-span-3 xl:col-span-2 xl:col-start-3 p-8 rounded-[2.5rem] flex flex-col h-full relative overflow-hidden group border-white/10"
         >
           <div
             class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity"
@@ -935,15 +877,6 @@
                   </span>
                   <span class="service-name">CRM Vexa</span>
                   <span class="service-desc" data-i18n="wz_crm_desc">Mijozlar, savdo voronkasi va xodimlar KPI</span>
-                  <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
-                </button>
-                <button type="button" class="service-card" data-type="restaurant" data-price="700" role="radio" aria-checked="false">
-                  <span class="service-check"><i data-lucide="check" class="w-4 h-4"></i></span>
-                  <span class="service-icon bg-amber-500/15 border-amber-500/25">
-                    <i data-lucide="chef-hat" class="w-7 h-7 text-amber-400"></i>
-                  </span>
-                  <span class="service-name">Restaurant Vexa</span>
-                  <span class="service-desc" data-i18n="wz_restaurant_desc">Restoran: stollar, menyu, oshxona buyurtmalari</span>
                   <span class="service-price"><span class="service-price-from" data-i18n="svc_from">dan</span><span class="service-price-value">$700</span></span>
                 </button>
                 <button type="button" class="service-card" data-type="erp" data-price="700" role="radio" aria-checked="false">
@@ -1263,16 +1196,6 @@
                 >
                   <i data-lucide="external-link" class="w-3.5 h-3.5"></i> CRM
                   Vexa
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://restaurant.vexa.uz"
-                  target="_blank" rel="noopener noreferrer"
-                  class="hover:text-white transition-colors flex items-center gap-2"
-                >
-                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                  Restaurant Vexa
                 </a>
               </li>
               <li>
